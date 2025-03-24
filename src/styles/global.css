@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* Open Sans - Load all necessary weights */
+@import "@fontsource/open-sans/300.css"; /* Light */
+@import "@fontsource/open-sans/400.css"; /* Regular */
+@import "@fontsource/open-sans/500.css"; /* Medium */
+@import "@fontsource/open-sans/600.css"; /* Semi-bold */
+@import "@fontsource/open-sans/700.css"; /* Bold */
+@import "@fontsource/open-sans/800.css"; /* Extra-bold */
+
+/* Archivo - Load all necessary weights */
+@import "@fontsource/archivo/300.css"; /* Light */
+@import "@fontsource/archivo/400.css"; /* Regular */
+@import "@fontsource/archivo/500.css"; /* Medium */
+@import "@fontsource/archivo/600.css"; /* Semi-bold */
+@import "@fontsource/archivo/700.css"; /* Bold */
+@import "@fontsource/archivo/800.css"; /* Extra-bold */
+
+/*
+Examples how to add custom fonts and colors
+*/
+
+@theme {
+  --font-archivo: "Archivo", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
+  --color-blue-light: #3674b5;
+}
+html,
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex-grow: 1; /* Pushes footer to bottom when content is short */
+}
+
+
+.main-container {
+  @apply container mx-auto px-4 py-2;
+}

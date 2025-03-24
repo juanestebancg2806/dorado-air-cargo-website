@@ -1,0 +1,75 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  metaTitle?: string;
+}
+
+const { metaTitle } = Astro.props;
+
+import Navbar from "../components/Navbar.astro";
+
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>El Dorado Air Cargo {metaTitle ? ` | ${metaTitle}` : ""}</title>
+    <meta
+      name="description"
+      content={"Manejo nacional e internacional de sus cargas"}
+    />
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content={`Manejo nacional e internacional de sus cargas`}
+    />
+    <meta
+      property="og:description"
+      content={"Manejo nacional e internacional de sus cargas"}
+    />
+    <meta property="og:image" content={"/logo.png"} />
+    <meta property="og:url" content="https://www.eldoradoaircargo.com/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content={`El Dorado Air Cargo: Manejo nacional e internacional de sus cargas`}
+    />
+    <meta
+      name="twitter:description"
+      content={"Manejo nacional e internacional de sus cargas"}
+    />
+    <meta name="twitter:image" content={"/logo.png"} />
+  </head>
+  <body>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+</style>

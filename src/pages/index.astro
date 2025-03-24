@@ -1,0 +1,24 @@
+---
+import CurrencyConverter from "../components/CurrencyConverter";
+import MainLayout from "../layouts/MainLayout.astro";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<MainLayout metaTitle="Inicio">
+  <section class="main-container">
+    <div class="flex justify-end">
+      <div class="flex flex-col gap-8">
+        <CurrencyConverter client:load />
+        <CurrencyConverter
+          currency="eur"
+          title="1 Euro es igual a"
+          client:load
+        />
+      </div>
+    </div>
+    <p class="font-open-sans">text opensans</p>
+    <p class="font-archivo">text archivo</p>
+  </section>
+</MainLayout>
