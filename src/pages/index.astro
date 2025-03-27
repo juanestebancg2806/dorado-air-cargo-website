@@ -1,6 +1,8 @@
 ---
 import CurrencyConverter from "../components/CurrencyConverter";
 import MainLayout from "../layouts/MainLayout.astro";
+import Carousel from "../components/Carousel.astro";
+import Card from "../components/Card.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -20,5 +22,11 @@ import MainLayout from "../layouts/MainLayout.astro";
     </div>
     <p class="font-open-sans">text opensans</p>
     <p class="font-archivo">text archivo</p>
+  </section>
+  
+  <section class="main-container">
+    <div class="flex justify-between">
+      <Carousel href="/" text="Volver al Inicio" />
+    </div>
   </section>
 </MainLayout>
