@@ -1,32 +1,46 @@
 ---
 import CurrencyConverter from "../components/CurrencyConverter";
 import MainLayout from "../layouts/MainLayout.astro";
-import Carousel from "../components/Carousel.astro";
-import Card from "../components/Card.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Button from "../components/Button.astro";
 ---
 
 <MainLayout metaTitle="Inicio">
-  <section class="main-container">
-    <div class="flex justify-end">
-      <div class="flex flex-col gap-8">
-        <CurrencyConverter client:load />
-        <CurrencyConverter
-          currency="eur"
-          title="1 Euro es igual a"
-          client:load
-        />
-      </div>
+  <section class="relative min-h-[500px]">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('/public/landing-ship.jpg');">
+      <div class="absolute inset-0 bg-black/50"></div> 
     </div>
-    <p class="font-open-sans">text opensans</p>
-    <p class="font-archivo">text archivo</p>
-  </section>
-  
-  <section class="main-container">
-    <div class="flex justify-between">
-      <Carousel href="/" text="Volver al Inicio" />
+
+    <!-- Content Container -->
+    <div class="relative flex flex-col md:flex-row justify-between items-center gap-8 py-16 px-6 md:px-12">
+      <!-- Left Content: Text -->
+      <div class="max-w-screen text-gray-100 bg-white/10 p-6 rounded-lg shadow-lg">
+        <h2 class="font-bold">Bienvenidos a</h2>
+        <br>
+        <h2 class="text-4xl font-bold">
+          El Dorado Air Cargo S.A.S.
+        </h2>
+        <p class="mt-4 text-lg">
+          Con más de <strong>25 años de experiencia</strong>, conectamos tu negocio con el mundo. Somos tu aliado estratégico en 
+          <strong>logística y transporte de carga</strong>, garantizando <strong>seguridad, calidad y compromiso</strong> en cada envío.
+        </p>
+        <ul class="mt-4 space-y-2 text-lg">
+          <li>📦 <strong>Manejo experto de carga nacional e internacional</strong></li>
+          <li>💼 <strong>Atención personalizada y soluciones a la medida</strong></li>
+          <li>✈️ <strong>Red global de transporte ágil y confiable</strong></li>
+        </ul>
+        
+        <!-- Using the Button component -->
+        <div class="mt-6">
+          <Button text="Cotiza tu envío ahora" />
+        </div>
+      </div>
+
+      <!-- Right Content: Currency Converter -->
+      <div class="relative flex flex-col gap-8 w-full md:w-auto p-6 rounded-lg">
+        <CurrencyConverter client:load />
+        <CurrencyConverter currency="eur" title="1 Euro es igual a" client:load />
+      </div>
     </div>
   </section>
 </MainLayout>
