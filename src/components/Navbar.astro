@@ -18,12 +18,21 @@ const navbarData: NavbarData[] = [
 ---
 
 <header
-  class="px-9 py-3 shadow-sm shadow-gray-300 sticky top-0 z-50 bg-white font-open-sans items-center"
+  class="px-9 py-3 shadow-sm sticky top-0 z-50 bg-white/90 backdrop-blur-lg transition-shadow duration-300 font-open-sans"
 >
   <nav class="flex items-center justify-between max-w-screen-2xl mx-auto">
-    <a href="/" class="flex gap-4 items-center">
-      <img src="/logo-secundario.png" class="h-18 w-17" alt="El Dorado Air Cargo Logo" />
-      <p class="text-gray-dark text-lg font-bold tracking-widest uppercase">
+    <a
+      href="/"
+      class="flex gap-4 items-center transition-transform duration-300 hover:scale-[1.03]"
+    >
+      <img
+        src="/logo-secundario.png"
+        class="h-18 w-17"
+        alt="El Dorado Air Cargo Logo"
+      />
+      <p
+        class="text-gray-dark text-lg font-bold tracking-widest uppercase max-lg:text-sm"
+      >
         El Dorado Air Cargo S.A.S
       </p>
     </a>
@@ -31,7 +40,7 @@ const navbarData: NavbarData[] = [
     <!-- Mobile Menu Toggle -->
     <button
       id="hamburger-button"
-      class="lg:hidden p-3 rounded-md"
+      class="lg:hidden p-3 rounded-md transition-transform hover:scale-110"
       aria-label="Open menu"
       aria-expanded="false"
     >
@@ -40,7 +49,7 @@ const navbarData: NavbarData[] = [
 
     <button
       id="close-button"
-      class="lg:hidden p-3 rounded-md hidden"
+      class="lg:hidden p-3 rounded-md hidden transition-transform hover:scale-110"
       aria-label="Close menu"
     >
       <img src="/close-menu-icon.svg" class="h-8 w-8" alt="Close menu" />
@@ -56,9 +65,10 @@ const navbarData: NavbarData[] = [
               id={link}
               aria-current={currentPage === link ? "page" : undefined}
               class={clsx(
-                "text-black hover:text-gray-700 transition-colors relative py-2",
-                currentPage === link &&
-                  "font-bold after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black"
+                "relative text-black py-2 transition-all duration-300 hover:text-gray-700 hover:after:w-full",
+                currentPage === link
+                  ? "font-bold after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-black"
+                  : "after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300"
               )}
             >
               {name}
@@ -69,7 +79,7 @@ const navbarData: NavbarData[] = [
     </ul>
   </nav>
 
-  <!-- Mobile Navigation BELOW the Header with Transition Effect -->
+  <!-- Mobile Navigation -->
   <div
     id="mobile-menu"
     class="absolute top-full left-0 w-full bg-white shadow-md opacity-0 translate-y-[-10px] scale-95 transition-all duration-300 ease-in-out overflow-hidden lg:hidden pointer-events-none"
@@ -81,7 +91,7 @@ const navbarData: NavbarData[] = [
             <a
               href={link}
               class={clsx(
-                "text-black hover:text-gray-700 transition-colors block py-2 text-lg",
+                "text-black active:scale-95 transition transform duration-150 block py-2 text-lg",
                 currentPage === link && "font-bold underline"
               )}
               id={`m-${link}`}
