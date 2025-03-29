@@ -10,6 +10,7 @@ const { metaTitle } = Astro.props;
 import Navbar from "../components/Navbar.astro";
 
 import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton";
 ---
 
 <!doctype html>
@@ -54,6 +55,7 @@ import Footer from "../components/Footer.astro";
       <slot />
     </main>
     <Footer />
+    <WhatsAppButton client:load/>
   </body>
 </html>
 
