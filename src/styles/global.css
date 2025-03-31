@@ -23,6 +23,12 @@ Examples how to add custom fonts and colors
 @theme {
   --font-archivo: "Archivo", sans-serif;
   --font-open-sans: "Open Sans", sans-serif;
+  /* Custom Color Palette */
+  --color-blue-dark: #26255e;     /* Fondo azul oscuro/índigo */
+  --color-yellow-orange: #ffa500; /* Globo naranja/amarillo */
+  --color-white: #ffffff;         /* Elementos blancos */
+
+  /* Optional existing color */
   --color-blue-light: #3674b5;
   --bg-gray-100: oklch(0.967 0.003 264.542);
 }

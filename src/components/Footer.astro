@@ -1,56 +1,102 @@
-<footer
-  class="bg-blue-light py-10 text-white items-center flex flex-col gap-12 max-sm:gap-4 max-sm:h-[420px]"
->
-  <section
-    class="flex justify-between items-center w-full max-lg:px-20 max-sm:px-0 max-sm:justify-center max-sm:flex-col max-sm:mt-10 max-w-screen-2xl"
-  >
-    <div
-      class="flex flex-col gap-8 pl-20 max-lg:pl-0 max-sm:items-center max-sm:gap-4"
-    >
-      <img
-        src={"/logo.png"}
-        class="h-40 w-30 cursor-pointer"
-        alt="el dorado air cargo logo"
-        onclick="window.location.href = '/'"
-      />
-      <div class="flex gap-5">
-        <a
-          href={"https://facebook.com"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img  src="./facebook-logo.svg"/>
-        </a>
-        <a href={"https://x.com/"} target="_blank" rel="noopener noreferrer">
-          <img src="./x-logo.svg" />
-        </a>
-        <a
-          href={"https://linkedin.com/"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img  src="./linkedin-logo.svg"/>
-        </a>
-        <a
-          href={"https://instagram.com/"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        <img  src="./instagram-logo.svg"/>
-        </a>
-      </div>
-    </div>
-  </section>
+---
+interface NavbarData {
+  name: string;
+  link: string;
+}
+const footerMenuOptions: NavbarData[] = [
+  { name: "Inicio", link: "/" },
+  { name: "Servicios", link: "/servicios" },
+  { name: "Historia", link: "/historia" },
+  { name: "Fundadores", link: "/fundadores" },
+  { name: "Certificaciones", link: "/certificaciones" },
+];
+---
 
-  <section
-    class="flex flex-col w-full mx-auto px-16 gap-3 max-sm:px-12 max-w-screen-2xl max-sm:mt-4"
-  >
-    <hr class="border-t border-gray-100 w-full" />
-    <div
-      class="w-full flex justify-between text-[12px] font-archivo text-label-text tracking-spaced"
+<footer
+  class="bg-[url('/footer-background.jpg')] bg-cover bg-center bg-no-repeat bg-blend-overlay text-black font-open-sans"
+>
+  <div class="bg-black/10 backdrop-blur-xs w-full h-full pt-10">
+    <section
+      class="w-full max-w-screen-2xl mx-auto px-8 flex flex-col lg:flex-row gap-12 mb-5"
     >
-      <p>Copyright 2025. Todos los derechos reservados</p>
-      
-    </div>
-  </section>
+      <!-- Company Info -->
+      <div class="flex-1 min-w-[250px] max-w-[400px] space-y-4 text-left">
+        <img
+          src="/logo.png"
+          class="h-24 w-auto cursor-pointer"
+          alt="el dorado air cargo logo"
+          onclick="window.location.href = '/'"
+        />
+        <p class="text-sm leading-relaxed text-justify">
+          A través de su red de agentes con alcance global, El Dorado Air Cargo
+          S.A.S brinda un portafolio de soluciones en transporte multimodal y
+          logística para las operaciones de comercio exterior.
+        </p>
+        <div class="flex gap-4 pt-2">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./facebook-logo.svg" class="h-7 w-7" />
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+            <img src="./x-logo.svg" class="h-7 w-7" />
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./linkedin-logo.svg" class="h-7 w-7" />
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./instagram-logo.svg" class="h-7 w-7" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Menu -->
+      <div class="flex-1 min-w-[150px] text-left space-y-2">
+        <h3 class="text-lg font-semibold mb-2">Menú</h3>
+        <ul class="flex flex-col gap-2 text-sm border-t border-black/20 pt-2">
+          {
+            footerMenuOptions.map((option) => (
+              <li class="border-b border-black/10 py-2">
+                <a href={option.link} class="hover:text-black/70">
+                  › {option.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div class="flex-1 min-w-[150px] text-left space-y-2">
+        <h3 class="text-lg font-semibold mb-2">Recursos</h3>
+        <ul class="flex flex-col gap-2 text-sm border-t border-black/20 pt-2">
+          <li class="border-b border-black/10 py-2">
+            <a href="/contacto" class="hover:text-black/70">› Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Bottom Bar -->
+    <section class="w-full bg-yellow-orange py-4 text-sm text-black">
+      <div
+        class="max-w-screen-2xl mx-auto px-8 flex flex-col lg:flex-row justify-between items-center gap-2 text-center lg:text-left"
+      >
+        <p class="font-semibold">
+          © Copyright 2025 | Todos los derechos reservados
+        </p>
+        <p>El Dorado Air Cargo S.A.S</p>
+      </div>
+    </section>
+  </div>
 </footer>

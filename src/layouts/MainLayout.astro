@@ -10,6 +10,7 @@ const { metaTitle } = Astro.props;
 import Navbar from "../components/Navbar.astro";
 
 import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton";
 ---
 
 <!doctype html>
@@ -21,12 +22,12 @@ import Footer from "../components/Footer.astro";
     <title>El Dorado Air Cargo {metaTitle ? ` | ${metaTitle}` : ""}</title>
     <meta
       name="description"
-      content={"Manejo nacional e internacional de sus cargas"}
+      content={"El Dorado Air Cargo S.A.S: Manejo nacional e internacional de sus cargas"}
     />
     <!-- Open Graph Meta Tags -->
     <meta
       property="og:title"
-      content={`Manejo nacional e internacional de sus cargas`}
+      content={`El Dorado Air Cargo S.A.S`}
     />
     <meta
       property="og:description"
@@ -40,7 +41,7 @@ import Footer from "../components/Footer.astro";
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content={`El Dorado Air Cargo: Manejo nacional e internacional de sus cargas`}
+      content={`El Dorado Air Cargo S.A.S`}
     />
     <meta
       name="twitter:description"
@@ -54,6 +55,7 @@ import Footer from "../components/Footer.astro";
       <slot />
     </main>
     <Footer />
+    <WhatsAppButton client:load/>
   </body>
 </html>
 

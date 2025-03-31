@@ -1,0 +1,49 @@
+---
+import ContactForm from "../components/ContactForm";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout metaTitle="Contacto">
+  <section class="main-container flex gap-10">
+    <div class="slide-in-left">
+      PBX (57) 601 7426218 <br />
+      Carrera 70C No. 49 - 56 Normandia Primer Sector <br />
+      Bogota D.C. <br />
+      contactenos@eldoradoaircargo.com
+    </div>
+    <div class="slide-in-right max-w-lg mx-auto bg-stone-50 rounded-md p-8">
+      <ContactForm client:load />
+    </div>
+  </section>
+</MainLayout>
+<style is:global>
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+</style>
