@@ -4,39 +4,42 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout metaTitle="Contacto">
-  <section class="main-container flex gap-10">
-    <div class="slide-in-left">
-      PBX (57) 601 7426218 <br />
-      Carrera 70C No. 49 - 56 Normandia Primer Sector <br />
-      Bogota D.C. <br />
-      contactenos@eldoradoaircargo.com
-    </div>
-    <div class="slide-in-right max-w-lg mx-auto bg-stone-50 rounded-md p-8">
+  <section class="main-container flex flex-col md:flex-row gap-10">
+    
+    <!-- Formulario de contacto -->
+    <div class="slide-in-left max-w-lg bg-stone-50 rounded-md p-8 shadow-md flex-1">
       <ContactForm client:load />
+    </div>
+
+    <!-- Información de contacto -->
+    <div class="slide-in-right text-gray-800 bg-stone-50 p-6 rounded-md shadow-md flex-1">
+      <p><strong>PBX:</strong> (57) 601 7426218</p>
+      <p><strong>Dirección:</strong> Carrera 70C No. 49 - 56, Normandia, Bogotá D.C.</p>
+      <p><strong>Email:</strong> contactenos@eldoradoaircargo.com</p>
+
+      <!-- Google Maps -->
+      <div class="mt-4 map-container fade-in">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5938202067555!2d-74.10981662564859!3d4.6662793419563195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b9de8321555%3A0xf43e85b502e3ef4!2sCra.%2070c%20%2349-56%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1743447300978!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </section>
 </MainLayout>
+
+<!-- Animaciones -->
 <style is:global>
   @keyframes slideInLeft {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
   }
 
   @keyframes slideInRight {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
   }
 
   .slide-in-left {
@@ -45,5 +48,15 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   .slide-in-right {
     animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .fade-in {
+    animation: fadeIn 1.5s ease-in-out forwards;
+  }
+
+  .map-container {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 </style>
