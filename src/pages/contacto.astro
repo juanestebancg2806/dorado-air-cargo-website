@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout metaTitle="Contacto">
-  <section class="main-container flex flex-col md:flex-row gap-10">
+  <section class="main-container flex flex-col md:flex-row gap-10 font-open-sans">
     
     <!-- Formulario de contacto -->
     <div class="slide-in-left max-w-lg bg-stone-50 rounded-md p-8 shadow-md flex-1">
@@ -26,7 +26,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 </MainLayout>
 
 <!-- Animaciones -->
-<style is:global>
+<style>
   @keyframes slideInLeft {
     0% { transform: translateX(-100%); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }

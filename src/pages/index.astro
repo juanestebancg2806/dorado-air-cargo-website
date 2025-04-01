@@ -5,10 +5,9 @@ import Button from "../components/Button.astro";
 ---
 
 <MainLayout metaTitle="Inicio">
-  <section class="relative min-h-[500px]">
+  <section class="relative min-h-[500px] font-open-sans">
     <!-- Background Image with Overlay -->
-    <div class="absolute inset-0 bg-cover bg-center" 
-         style="background-image: url('/public/landing-ship.jpg');">
+    <div class="absolute inset-0 bg-cover bg-center bg-[url('/landing-ship.jpg')]">
       <div class="absolute inset-0 bg-black/50"></div> 
     </div>
 
@@ -46,7 +45,7 @@ import Button from "../components/Button.astro";
   </section>
 
   <!-- Global Styles for Progressive Text Animation -->
-  <style is:global>
+  <style>
     @keyframes revealText {
       0% { opacity: 0; transform: translateY(10px); }
       100% { opacity: 1; transform: translateY(0); }
