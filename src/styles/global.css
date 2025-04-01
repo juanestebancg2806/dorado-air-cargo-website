@@ -30,6 +30,7 @@ Examples how to add custom fonts and colors
 
   /* Optional existing color */
   --color-blue-light: #3674b5;
+  --bg-gray-100: oklch(0.967 0.003 264.542);
 }
 html,
 body {

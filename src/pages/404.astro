@@ -1,0 +1,46 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+---
+
+<MainLayout metaTitle="Página no encontrada">
+  <section class="flex flex-col items-center justify-center min-h-screen bg-white text-center font-open-sans">
+    
+    <!-- Animated Image -->
+    <div class="relative">
+      <img src="/lost-robot.jpg" alt="Lost Robot" class="toy-animation w-40 h-auto" />
+    </div>
+
+    <!-- Text Content -->
+    <h1 class="text-6xl font-bold mt-6">404</h1>
+    <p class="text-xl mt-2">Parece que te perdiste en el espacio... 🚀</p>
+    <p class="text-xl mt-2">Página no encontrada</p>
+
+    <div class="mt-6 fade-in">
+      <Button href="/" text="Volver al Inicio" />
+    </div>
+  </section>
+
+  <!-- Global Styles for Animations -->
+  <style>
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .toy-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease-out forwards;
+    }
+  </style>
+</MainLayout>

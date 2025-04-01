@@ -57,7 +57,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
             <p className="text-gray-500 text-lg">Cargando...</p>
           ) : (
             <p className="text-lg font-bold">
-              {currencyToCop?.toLocaleString("es-CO")} Peso colombiano
+              {currencyToCop?.toLocaleString("es-CO")} Pesos colombianos
             </p>
           )}
         </>
