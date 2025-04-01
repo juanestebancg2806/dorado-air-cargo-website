@@ -13,7 +13,7 @@ const footerMenuOptions: NavbarData[] = [
 ---
 
 <footer
-  class="bg-[url('/footer-background.jpg')] bg-cover bg-center bg-no-repeat bg-blend-overlay text-black font-open-sans"
+  class="bg-[url('/footer-backgorund-dark.png')] bg-cover bg-center bg-no-repeat bg-blend-overlay bg-black/40 text-white font-open-sans"
 >
   <div class="bg-black/10 backdrop-blur-xs w-full h-full pt-10">
     <section
@@ -63,10 +63,10 @@ const footerMenuOptions: NavbarData[] = [
       <!-- Menu -->
       <div class="flex-1 min-w-[150px] text-left space-y-2">
         <h3 class="text-lg font-semibold mb-2">Menú</h3>
-        <ul class="flex flex-col gap-2 text-sm border-t border-black/20 pt-2">
+        <ul class="flex flex-col gap-2 text-sm border-t pt-2">
           {
             footerMenuOptions.map((option) => (
-              <li class="border-b border-black/10 py-2">
+              <li class="border-b py-2">
                 <a href={option.link} class="hover:text-black/70">
                   › {option.name}
                 </a>
@@ -79,8 +79,8 @@ const footerMenuOptions: NavbarData[] = [
       <!-- Resources -->
       <div class="flex-1 min-w-[150px] text-left space-y-2">
         <h3 class="text-lg font-semibold mb-2">Recursos</h3>
-        <ul class="flex flex-col gap-2 text-sm border-t border-black/20 pt-2">
-          <li class="border-b border-black/10 py-2">
+        <ul class="flex flex-col gap-2 text-sm border-t pt-2">
+          <li class="border-b py-2">
             <a href="/contacto" class="hover:text-black/70">› Contacto</a>
           </li>
         </ul>
