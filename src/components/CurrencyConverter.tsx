@@ -27,23 +27,46 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
 
   useEffect(() => {
     const fetchExchangeRates = async () => {
+      setLoading(true);
       try {
-        setLoading(true);
-
-        // Fetch data using Axios
+        // Primary API call
         const { data } = await api.get<CurrencyApiResponse>(
           API_URL + `${currency}.json`
         );
-        setCurrencyToCop(data[currency]?.cop ?? 0);
-      } catch (err) {
-        console.error(err);
+        const rate = data[currency]?.cop ?? null;
+
+        if (rate !== null) {
+          setCurrencyToCop(rate);
+        } else {
+          throw new Error("No COP rate found in primary API.");
+        }
+      } catch (primaryError) {
+        console.warn("Primary API failed, trying fallback...", primaryError);
+
+        try {
+          // Fallback API call
+          const fallbackResponse = await fetch(
+            `${FALLBACK_API_URL}${currency}.json`
+          );
+          const fallbackData: CurrencyApiResponse = await fallbackResponse.json();
+          const fallbackRate = fallbackData[currency]?.cop ?? null;
+
+          if (fallbackRate !== null) {
+            setCurrencyToCop(fallbackRate);
+          } else {
+            throw new Error("No COP rate found in fallback API.");
+          }
+        } catch (fallbackError) {
+          console.error("Fallback API also failed", fallbackError);
+          setCurrencyToCop(0); // Show error message
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchExchangeRates();
-  }, []);
+  }, [currency]);
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md text-center max-w-md font-open-sans">

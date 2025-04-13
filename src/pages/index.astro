@@ -7,29 +7,49 @@ import Button from "../components/Button.astro";
 <MainLayout metaTitle="Inicio">
   <section class="relative min-h-[500px] font-open-sans">
     <!-- Background Image with Overlay -->
-    <div class="absolute inset-0 bg-cover bg-center bg-[url('/landing-ship.jpg')]">
-      <div class="absolute inset-0 bg-black/50"></div> 
+    <div
+      class="absolute inset-0 bg-cover bg-center bg-[url('/landing-ship.jpg')]"
+    >
+      <div class="absolute inset-0 bg-black/50"></div>
     </div>
 
     <!-- Content Container -->
-    <div class="relative flex flex-col md:flex-row justify-between items-center gap-8 py-16 px-6 md:px-12">
+    <div
+      class="relative flex flex-col md:flex-row justify-between items-center gap-8 py-16 px-6 md:px-12"
+    >
       <!-- Left Content: Progressive Text Appearance -->
-      <div class="max-w-screen text-gray-100 bg-white/10 p-6 rounded-lg shadow-lg">
-        <h2 class="font-bold reveal-text" style="animation-delay: 0.2s;">Bienvenidos a</h2>
-        <br>
-        <h2 class="text-4xl font-bold reveal-text" style="animation-delay: 0.5s;">
+      <div
+        class="max-w-screen text-gray-100 bg-white/10 p-6 rounded-lg shadow-lg"
+      >
+        <h2 class="font-bold reveal-text" style="animation-delay: 0.2s;">
+          Bienvenidos a
+        </h2>
+        <br />
+        <h2
+          class="text-4xl font-bold reveal-text"
+          style="animation-delay: 0.5s;"
+        >
           El Dorado Air Cargo S.A.S.
         </h2>
         <p class="mt-4 text-lg reveal-text" style="animation-delay: 0.8s;">
-          Con más de <strong>25 años de experiencia</strong>, conectamos tu negocio con el mundo. Somos tu aliado estratégico en 
-          <strong>logística y transporte de carga</strong>, garantizando <strong>seguridad, calidad y compromiso</strong> en cada envío.
+          Con más de <strong>25 años de experiencia</strong>, conectamos tu
+          negocio con el mundo. Somos tu aliado estratégico en
+          <strong>logística y transporte de carga</strong>, garantizando <strong
+            >seguridad, calidad y compromiso</strong
+          > en cada envío.
         </p>
         <ul class="mt-4 space-y-2 text-lg">
-          <li class="reveal-text" style="animation-delay: 1.1s;">📦 <strong>Manejo experto de carga nacional e internacional</strong></li>
-          <li class="reveal-text" style="animation-delay: 1.4s;">💼 <strong>Atención personalizada y soluciones a la medida</strong></li>
-          <li class="reveal-text" style="animation-delay: 1.7s;">✈️ <strong>Red global de transporte ágil y confiable</strong></li>
+          <li class="reveal-text" style="animation-delay: 1.1s;">
+            📦 <strong>Manejo experto de carga nacional e internacional</strong>
+          </li>
+          <li class="reveal-text" style="animation-delay: 1.4s;">
+            💼 <strong>Atención personalizada y soluciones a la medida</strong>
+          </li>
+          <li class="reveal-text" style="animation-delay: 1.7s;">
+            ✈️ <strong>Red global de transporte ágil y confiable</strong>
+          </li>
         </ul>
-        
+
         <!-- Using the Button component -->
         <div class="mt-6 reveal-text" style="animation-delay: 2s;">
           <Button href="/contacto" text="Cotiza tu envío ahora" />
@@ -39,21 +59,12 @@ import Button from "../components/Button.astro";
       <!-- Right Content: Currency Converter (No animation) -->
       <div class="relative flex flex-col gap-8 w-full md:w-auto p-6 rounded-lg">
         <CurrencyConverter client:load />
-        <CurrencyConverter currency="eur" title="1 Euro es igual a" client:load />
+        <CurrencyConverter
+          currency="eur"
+          title="1 Euro es igual a"
+          client:load
+        />
       </div>
     </div>
   </section>
-
-  <!-- Global Styles for Progressive Text Animation -->
-  <style>
-    @keyframes revealText {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal-text {
-      opacity: 0;
-      animation: revealText 0.7s ease-out forwards;
-    }
-  </style>
 </MainLayout>

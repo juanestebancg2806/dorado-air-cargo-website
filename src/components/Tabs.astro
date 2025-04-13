@@ -1,0 +1,71 @@
+---
+interface Tab {
+  id: string;
+  label: string;
+  icon?: string;
+}
+import { Icon } from "astro-icon/components"; 
+
+const { tabs } = Astro.props as { tabs: Tab[] };
+---
+
+<div class="w-full font-open-sans">
+  <!-- Tab Buttons -->
+  <div class="flex flex-col lg:flex-row gap-4 lg:gap-10 items-center justify-center">
+    {
+      tabs.map((tab, index) => (
+        <button
+          type="button"
+          class={`tab-button relative cursor-pointer px-4 py-2 font-medium transition-all duration-300
+   hover:text-gray-700 flex gap-2 items-center
+  after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full
+  ${index === 0 ? "text-black font-semibold after:w-full" : ""}
+`}
+          data-tab={tab.id}
+        >
+          {tab.label}
+          {tab.icon && <Icon name={tab.icon} class="text-xl"/>}
+        </button>
+      ))
+    }
+  </div>
+
+  <!-- Tab Content -->
+  <div class="tab-contents">
+    <slot />
+  </div>
+</div>
+
+<!-- Vanilla JS Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll(".tab-button");
+    const contents = document.querySelectorAll(".tab-content");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Reset all buttons
+        buttons.forEach((b) => {
+          b.classList.remove("text-black", "font-semibold", "after:w-full");
+          b.classList.add("after:w-0");
+        });
+
+        // Activate clicked button
+        btn.classList.add("text-black", "font-semibold", "after:w-full");
+        btn.classList.remove("after:w-0");
+
+        // Hide all content
+        contents.forEach((c) => c.classList.add("hidden"));
+
+        // Show selected tab
+        const targetId = btn.getAttribute("data-tab");
+        if (targetId)
+          document.getElementById(targetId)?.classList.remove("hidden");
+      });
+    });
+    // ✅ Trigger first tab manually
+    if (buttons.length > 0) {
+      (buttons[0] as HTMLElement).click();
+    }
+  });
+</script>
