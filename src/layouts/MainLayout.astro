@@ -10,7 +10,6 @@ const { metaTitle } = Astro.props;
 import Navbar from "../components/Navbar.astro";
 
 import Footer from "../components/Footer.astro";
-import WhatsAppButton from "../components/WhatsAppButton";
 ---
 
 <!doctype html>
@@ -25,24 +24,18 @@ import WhatsAppButton from "../components/WhatsAppButton";
       content={"El Dorado Air Cargo S.A.S: Manejo nacional e internacional de sus cargas"}
     />
     <!-- Open Graph Meta Tags -->
-    <meta
-      property="og:title"
-      content={`El Dorado Air Cargo S.A.S`}
-    />
+    <meta property="og:title" content={`El Dorado Air Cargo S.A.S`} />
     <meta
       property="og:description"
       content={"Manejo nacional e internacional de sus cargas"}
     />
-    <meta property="og:image" content={"/logo.png"} />
+    <meta property="og:image" content={"/logo-redes.jpeg"} />
     <meta property="og:url" content="https://www.eldoradoaircargo.com/" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content={`El Dorado Air Cargo S.A.S`}
-    />
+    <meta name="twitter:title" content={`El Dorado Air Cargo S.A.S`} />
     <meta
       name="twitter:description"
       content={"Manejo nacional e internacional de sus cargas"}
@@ -55,11 +48,26 @@ import WhatsAppButton from "../components/WhatsAppButton";
       <slot />
     </main>
     <Footer />
-    <WhatsAppButton client:load/>
   </body>
 </html>
-
+<!-- Global Styles for Progressive Text Animation -->
 <style is:global>
+  @keyframes revealText {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .reveal-text {
+    opacity: 0;
+    animation: revealText 0.7s ease-out forwards;
+  }
+
   ::-webkit-scrollbar {
     width: 3px;
   }
