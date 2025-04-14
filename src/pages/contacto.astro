@@ -1,49 +1,101 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <MainLayout metaTitle="Contacto">
+  <!-- Banner -->
   <section
-    class="main-container flex flex-col md:flex-row gap-10 font-open-sans"
+    class="bg-yellow-orange shadow-sm p-6 md:p-10 mb-14 md:mb-20 flex flex-col md:flex-row items-center gap-6 font-open-sans min-h-52 justify-center md:justify-start"
   >
-    <!-- Información de contacto -->
-    <div
-      class="slide-in-right text-gray-800 bg-stone-50 p-6 rounded-md shadow-md flex-1"
-    >
-      <p><strong>PBX:</strong> (57) 601 7426218</p>
-      <p>
-        <strong>Dirección:</strong> Carrera 70C No. 49 - 56, Normandia, Bogotá D.C.
+    <div class="md:ml-10 text-black">
+      <h1 class="text-3xl md:text-4xl font-bold mb-2">Contáctanos</h1>
+      <p class="max-w-xl">
+        Estamos aquí para resolver tus dudas y ayudarte en lo que necesites.
+        Ponte en contacto con nosotros a través de los siguientes canales:
       </p>
-      <p><strong>Email:</strong> contactenos@eldoradoaircargo.com</p>
-
-      <!-- Google Maps -->
-      <div class="mt-4 map-container fade-in">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5938202067555!2d-74.10981662564859!3d4.6662793419563195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b9de8321555%3A0xf43e85b502e3ef4!2sCra.%2070c%20%2349-56%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1743447300978!5m2!1ses!2sco"
-          width="600"
-          height="450"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
     </div>
   </section>
+
+  <!-- Grid layout -->
+  <div class="main-container font-open-sans mb-14 slide-in-right">
+    <div class="flex flex-col gap-20 lg:flex-row lg:gap-10 px-4">
+      <!-- Columna izquierda: Info de contacto -->
+      <section class="flex-1 space-y-6">
+        <!-- PBX -->
+        <div class="flex items-start gap-2">
+          <Icon name="mdi:phone" class="text-xl mt-1 flex-shrink-0" />
+          <div>
+            <strong class="block">PBX:</strong>
+            <a
+              href="tel:+576017426218"
+              class="leading-snug text-blue-700 underline hover:text-blue-800 transition-colors"
+            >
+              (57) 601 7426218
+            </a>
+          </div>
+        </div>
+
+        <!-- Dirección -->
+        <div class="flex items-start gap-2">
+          <Icon name="mdi:map-marker" class="text-xl mt-1 flex-shrink-0" />
+          <div>
+            <strong class="block">Dirección:</strong>
+            <p class="leading-snug">
+              Carrera 70C No. 49 - 56,<br />
+              Normandia, Bogotá D.C.
+            </p>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="flex items-start gap-2">
+          <Icon name="mdi:email" class="text-xl mt-1 flex-shrink-0" />
+          <div>
+            <strong class="block">Email:</strong>
+            <a
+              href="mailto:contactenos@eldoradoaircargo.com"
+              class="leading-snug break-words text-blue-700 underline hover:text-blue-800 transition-colors"
+            >
+              contactenos@eldoradoaircargo.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Mapa -->
+        <div class="mt-6 fade-in rounded-xl overflow-hidden max-w-full">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5938202067555!2d-74.10981662564859!3d4.6662793419563195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9b9de8321555%3A0xf43e85b502e3ef4!2sCra.%2070c%20%2349-56%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1743447300978!5m2!1ses!2sco"
+            width="100%"
+            height="350"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </section>
+
+      <!-- Columna derecha: Formulario -->
+      <section class="flex-1">
+        <div class="relative w-full pt-[140%] lg:pt-[1091px] rounded-xl overflow-hidden shadow-sm">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLScrg6Qrm-hGYHjOcWU8sgkpLND6WREdkjplqgr2TuSReVIFqg/viewform?embedded=true"
+            class="absolute top-0 left-0 w-full h-full"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            loading="lazy"
+          >
+            Cargando…
+          </iframe>
+        </div>
+      </section>
+      
+    </div>
+  </div>
 </MainLayout>
 
-<!-- Animaciones -->
 <style>
-  @keyframes slideInLeft {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
   @keyframes slideInRight {
     0% {
       transform: translateX(100%);
@@ -64,21 +116,14 @@ import MainLayout from "../layouts/MainLayout.astro";
     }
   }
 
-  .slide-in-left {
-    animation: slideInLeft 0.8s ease-out forwards;
-  }
+  /* Animaciones aplicadas solo en md: */
+  @media (min-width: 1024px) {
+    .slide-in-right {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
 
-  .slide-in-right {
-    animation: slideInRight 0.8s ease-out forwards;
-  }
-
-  .fade-in {
-    animation: fadeIn 1.5s ease-in-out forwards;
-  }
-
-  .map-container {
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    .fade-in {
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
   }
 </style>
