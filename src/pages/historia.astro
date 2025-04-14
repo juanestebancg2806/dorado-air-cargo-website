@@ -1,0 +1,38 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const items = [
+  { yearRange: "2000–2005", description: "Fundación de la empresa", imagePath: "/landing-ship.jpg" },
+  { yearRange: "2005–2010", description: "Expansión nacional", imagePath: "/landing-ship.jpg" },
+  { yearRange: "2010–2015", description: "Nuevos productos", imagePath: "/landing-ship.jpg" },
+  { yearRange: "2015–2020", description: "Crecimiento internacional", imagePath: "/landing-ship.jpg" },
+  { yearRange: "2020–2025", description: "Innovaciones tecnológicas", imagePath: "/landing-ship.jpg" },
+  { yearRange: "2025+", description: "Visión a futuro", imagePath: "/landing-ship.jpg" },
+];
+---
+
+<MainLayout>
+  <section class="max-w-7xl mx-auto px-4 py-16">
+    <h2 class="text-center text-4xl font-bold text-gray-900 mb-6">Nuestra Historia</h2>
+    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+      Descubre cómo hemos transformado ideas en logros y proyectos en realidades. Este es nuestro camino recorrido y los momentos que han definido quiénes somos.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+      {items.map((item, index) => (
+        <div
+          class="timeline-card bg-white p-6 rounded-lg shadow-md text-center h-full"
+        >
+          <img 
+            src={item.imagePath} 
+            alt={item.yearRange} 
+            class="w-20 h-20 object-cover rounded-full mx-auto mb-4 border-2 border-blue-300"
+            loading="lazy"
+          />
+          <h3 class="text-lg font-semibold text-gray-900">{item.yearRange}</h3>
+          <p class="text-gray-600 text-sm mt-2">{item.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</MainLayout>
