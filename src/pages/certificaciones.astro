@@ -1,0 +1,61 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+// Lista de certificaciones con nombre y archivo
+const certificaciones = [
+  {
+    nombre: "Acreditación IATA 2025",
+    src: "CERTIFICADO ACREDITACION IATA 2025 BOGOTA_page-0001.jpg"
+  },
+  {
+    nombre: "Certificación ISO 28000",
+    src: "CERTIFICADO DIGITAL - EL DORADO AIR CARGO SAS - ISO 28000 BUREAU VERITAS_page-0001.jpg"
+  },
+];
+---
+
+<MainLayout metaTitle="Certificaciones">
+  <section class="py-16 px-6 md:px-12 font-open-sans min-h-screen bg-white">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-blue-dark mb-4">Certificaciones</h1>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Conoce las certificaciones que respaldan nuestro compromiso con la calidad y el cumplimiento normativo.
+      </p>
+    </div>
+
+    <!-- Flex layout para centrar todo correctamente -->
+    <div class="flex flex-wrap justify-center gap-8">
+      {certificaciones.map(({ nombre, src }, index) => (
+        <div
+          class="flex flex-col items-center text-center bg-white rounded-lg shadow-lg p-4 w-full max-w-md
+                 transition-transform duration-700 ease-out opacity-0 translate-y-10 animate-fade-in-up"
+          style={`animation-delay: ${index * 0.3}s`}
+        >
+          <h3 class="text-2xl font-semibold text-blue-dark mb-4">{nombre}</h3>
+          <img
+            src={src}
+            alt={`Certificación ${index + 1} - ${nombre}`}
+            class="w-full h-auto rounded-md object-contain max-h-[500px]"
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+  </style>
+</MainLayout>

@@ -12,7 +12,6 @@ import Button from "../components/Button.astro";
       <div class="absolute inset-0 bg-blue-dark/50"></div>
     </div>
 
-
     <!-- Content Container -->
     <div class="relative flex flex-col md:flex-row justify-between items-center gap-8 py-16 px-6 md:px-12">
       <!-- Left Content: Progressive Text Appearance -->
@@ -44,5 +43,40 @@ import Button from "../components/Button.astro";
         <CurrencyConverter currency="eur" title="1 Euro es igual a" client:load />
       </div>
     </div>
-  </section>
+
+
+
+    <!-- Carousel Container -->
+    <div class="relative w-full bg-white py-6 overflow-hidden">
+          <!-- Partners Row -->
+    <div class="w-full mt-16">
+      <h3 class="text-center bg-white text-2xl font-bold text-blue-dark mb-6 mtp-1 reveal-text">Nuestros proveedores</h3>
+    </div>
+      <!-- Inner carousel that scrolls -->
+      <div class="animate-scroll flex gap-12 w-max">
+        <img src="/avianca.png" alt="Marca 1" class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300" />
+        <img src="/copa.jpg" alt="Marca 2" class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300" />
+        <img src="/qatar.png" alt="Marca 3" class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300" />
+        <img src="/dhl.png" alt="Marca 4" class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300" />
+
+        <!-- Repite las imágenes para que el loop se vea continuo -->
+        <img src="/avianca.png" alt="Marca 1" class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300" />
+        <img src="/copa.jpg" alt="Marca 2" class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300" />
+        <img src="/qatar.png" alt="Marca 3" class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300" />
+        <img src="/dhl.png" alt="Marca 4" class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300" />
+      </div>
+    </div>
+
+    <style>
+      @keyframes scroll {
+        0% { transform: translateX(40%); }
+        100% { transform: translateX(-50%); }
+      }
+
+      .animate-scroll {
+        animation: scroll 30s linear infinite;
+      }
+    </style>
+
+
 </MainLayout>
