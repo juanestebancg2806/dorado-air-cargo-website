@@ -1,0 +1,74 @@
+---
+import { sanityClient } from "sanity:client";
+import type { Blog } from "../../types/sanity.types";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { getSanityURL } from "../../utils/sanityImage";
+
+const BLOGS_QUERY = `*[
+  _type == "blog"
+  && defined(slug.current)
+]|order(publishedAt desc)[0...12]{
+  _id,
+  title,
+  slug,
+  publishedAt,
+  coverImage
+}`;
+
+
+const blogs = await sanityClient.fetch<Blog[]>(BLOGS_QUERY);
+---
+
+<MainLayout metaTitle="Blogs">
+  <section
+    class="bg-blue-dark shadow-sm p-6 md:p-10 mb-14 md:mb-20 flex flex-col md:flex-row items-center gap-6 font-open-sans min-h-52 justify-center md:justify-start"
+  >
+    <!-- Text Content -->
+    <div class="md:ml-10 text-justify">
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Blogs</h1>
+      <p class="text-white max-w-xl">
+        En El Dorado Air Cargo conectamos Colombia con el mundo a través de
+        soluciones logísticas integrales de importación y exportación. En
+        nuestro blog encontrarás noticias, consejos y tendencias para optimizar
+        tus procesos comerciales con seguridad, eficiencia y cercanía.
+      </p>
+    </div>
+  </section>
+ <section class="main-container font-open-sans mb-14">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {
+      blogs.map((blog) => (
+        <a
+          href={`/blogs/${blog.slug.current}`}
+          class="group block bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-transform duration-300 hover:scale-[1.01]"
+        >
+          {blog.coverImage && (
+            <img
+              src={getSanityURL(blog.coverImage).url()}
+              alt={blog.title}
+              class="w-full h-40 object-cover"
+            />
+          )}
+          <div class="p-6">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2 transition-colors group-hover:text-gray-700">
+              {blog.title}
+            </h2>
+            <p class="text-sm text-gray-500 mb-1">
+              {new Date(blog.publishedAt).toLocaleDateString("es-CO", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </p>
+
+            <!-- Hover underline effect -->
+            <span class="block w-0 h-[2px] bg-gray-700 transition-all duration-300 group-hover:w-full" />
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+  
+</MainLayout>

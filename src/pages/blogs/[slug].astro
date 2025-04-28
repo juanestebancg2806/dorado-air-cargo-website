@@ -1,0 +1,67 @@
+---
+import { sanityClient } from "sanity:client";
+import { PortableText } from "astro-portabletext";
+import { getSanityURL } from "../../utils/sanityImage";
+import type { Blog } from "../../types/sanity.types";
+import MainLayout from "../../layouts/MainLayout.astro";
+import { portableTextComponents } from "../../components/portableTextComponents";
+const BLOG_QUERY = `*[_type == "blog" && slug.current == $slug][0]`;
+const blog = await sanityClient.fetch<Blog>(BLOG_QUERY, Astro.params);
+
+export async function getStaticPaths(): Promise<{ params: { slug: string } }> {
+  const SLUGS_QUERY = `*[_type == "blog" && defined(slug.current)]{
+    "params": {"slug": slug.current}
+  }`;
+  return await sanityClient.fetch(SLUGS_QUERY, Astro.params);
+}
+const blogImageUrl = blog.image ? getSanityURL(blog.image)?.url() : null;
+---
+
+<MainLayout metaTitle={blog.title}>
+  <section
+    class="bg-blue-dark shadow-sm p-6 md:p-10 mb-14 md:mb-20 flex flex-col gap-6 font-open-sans min-h-52 justify-center"
+  >
+    <div class="max-w-4xl text-white">
+      <h1 class="text-3xl md:text-4xl font-bold mb-2">{blog.title}</h1>
+      <p class="text-md text-white/80">
+        Publicado el{" "}
+        {
+          new Date(blog.publishedAt).toLocaleDateString("es-CO", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </p>
+    </div>
+  </section>
+
+  <section class="main-container font-open-sans max-w-4xl mx-auto mb-14">
+    <a href="/blogs" class="text-gray-700 hover:underline mb-6 inline-block">
+      &larr; Volver a blogs
+    </a>
+
+    {
+      blogImageUrl && (
+        <img
+          src={blogImageUrl}
+          alt={blog.title}
+          class="w-full h-auto max-h-[400px] object-cover rounded-xl mb-8 shadow-sm"
+        />
+      )
+    }
+
+    <div
+      class="prose max-w-none prose-a:text-blue-600 prose-a:underline hover:prose-a:text-blue-800"
+    >
+      {
+        Array.isArray(blog.body) && (
+          <PortableText
+            value={blog.body}
+            components={portableTextComponents as any}
+          />
+        )
+      }
+    </div>
+  </section>
+</MainLayout>
