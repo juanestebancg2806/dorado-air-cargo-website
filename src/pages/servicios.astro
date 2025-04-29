@@ -7,34 +7,41 @@ const tabs = [
     id: "tab-marca",
     label: "Por qué elegirnos?",
     icon: "mdi:star-circle-outline",
-    image: "public/por-que-elegirnos.jpg"
+    image: "/por-que-elegirnos.jpg",
   },
   {
     id: "tab-importaciones",
     label: "Importaciones",
     icon: "mdi:airplane",
-    image: "public/importaciones.jpg"
+    image: "/importaciones.jpg",
   },
   {
     id: "tab-exportaciones",
     label: "Exportaciones",
     icon: "mdi:airplane",
-    image: "public/exportaciones.jpg"
+    image: "/exportaciones.jpg",
   },
   {
     id: "tab-otros-servicios",
     label: "Otros servicios",
     icon: "mdi:package-variant",
-    image: "public/otros-servicios.jpg"
+    image: "/otros-servicios.jpg",
   },
 ];
 ---
 
-<MainLayout metaTitle="Servicios">
+<MainLayout
+  metaTitle="Servicios"
+  metaDescription="Descubre los servicios de logística de El Dorado Air Cargo: importaciones, exportaciones, asesoría en comercio exterior y soluciones personalizadas para tu carga."
+>
   <!-- Banner -->
-  <section class="bg-blue-dark shadow-sm p-6 md:p-10 mb-14 md:mb-20 flex flex-col md:flex-row items-center gap-6 font-open-sans min-h-52 justify-center md:justify-start">
+  <section
+    class="bg-blue-dark shadow-sm p-6 md:p-10 mb-14 md:mb-20 flex flex-col md:flex-row items-center gap-6 font-open-sans min-h-52 justify-center md:justify-start"
+  >
     <div class="md:ml-10 text-justify">
-      <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Nuestros Servicios</h1>
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">
+        Nuestros Servicios
+      </h1>
       <p class="text-white max-w-xl">
         En El Dorado Air Cargo ofrecemos soluciones logísticas adaptadas a tus
         necesidades. Nuestro compromiso es brindarte seguridad, eficiencia y
@@ -47,78 +54,172 @@ const tabs = [
     <Tabs tabs={tabs}>
       <!-- Por qué elegirnos -->
       <div id="tab-marca" class="tab-content p-4 font-open-sans mt-5">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+        <div
+          class="flex flex-col md:flex-row items-center md:items-start gap-6"
+        >
           <div class="w-full md:w-1/2">
-            <img src={tabs.find(t => t.id === "tab-marca").image} alt="Por qué elegirnos" class="w-full rounded-lg object-cover" />
+            <img
+              src={tabs.find((t) => t.id === "tab-marca")!.image}
+              alt="Por qué elegirnos"
+              class="w-full rounded-lg object-cover"
+            />
           </div>
           <div class="w-full md:w-1/2">
-            <p class="reveal-text mb-4">Nuestra experiencia, compromiso y enfoque humano nos convierten en tu mejor aliado logístico. Estas son algunas razones por las que nuestros clientes confían en nosotros:</p>
+            <p class="reveal-text mb-4">
+              Nuestra experiencia, compromiso y enfoque humano nos convierten en
+              tu mejor aliado logístico. Estas son algunas razones por las que
+              nuestros clientes confían en nosotros:
+            </p>
             <ul class="list-disc list-inside space-y-2">
-              <li class="reveal-text">La seriedad que refleja la experiencia del personal de la compañía.</li>
-              <li class="reveal-text">La transparencia en el manejo confiable de la información entregada.</li>
-              <li class="reveal-text">Tarifas competitivas y acordes al mercado.</li>
-              <li class="reveal-text">Seguimiento personalizado en cada etapa del proceso logístico.</li>
-              <li class="reveal-text">La tranquilidad de trabajar entre amigos, clientes conocidos y proveedores efectivos.</li>
-              <li class="reveal-text">La garantía de acceder a información precisa y actualizada del régimen aplicado al comercio exterior, a través de nuestros asesores especializados.</li>
+              <li class="reveal-text">
+                La seriedad que refleja la experiencia del personal de la
+                compañía.
+              </li>
+              <li class="reveal-text">
+                La transparencia en el manejo confiable de la información
+                entregada.
+              </li>
+              <li class="reveal-text">
+                Tarifas competitivas y acordes al mercado.
+              </li>
+              <li class="reveal-text">
+                Seguimiento personalizado en cada etapa del proceso logístico.
+              </li>
+              <li class="reveal-text">
+                La tranquilidad de trabajar entre amigos, clientes conocidos y
+                proveedores efectivos.
+              </li>
+              <li class="reveal-text">
+                La garantía de acceder a información precisa y actualizada del
+                régimen aplicado al comercio exterior, a través de nuestros
+                asesores especializados.
+              </li>
             </ul>
-            <p class="reveal-text text-center text-lg font-semibold mt-6">¡Estamos aquí para brindarte soluciones efectivas con confianza, calidad y cercanía!</p>
+            <p class="reveal-text text-center text-lg font-semibold mt-6">
+              ¡Estamos aquí para brindarte soluciones efectivas con confianza,
+              calidad y cercanía!
+            </p>
           </div>
         </div>
       </div>
 
       <!-- Importaciones -->
-      <div id="tab-importaciones" class="tab-content p-4 hidden font-open-sans mt-5">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+      <div
+        id="tab-importaciones"
+        class="tab-content p-4 hidden font-open-sans mt-5"
+      >
+        <div
+          class="flex flex-col md:flex-row items-center md:items-start gap-6"
+        >
           <div class="w-full md:w-1/2">
-            <img src={tabs.find(t => t.id === "tab-importaciones").image} alt="Importaciones" class="w-full rounded-lg object-cover" />
+            <img
+              src={tabs.find((t) => t.id === "tab-importaciones")!.image}
+              alt="Importaciones"
+              class="w-full rounded-lg object-cover"
+            />
           </div>
           <div class="w-full md:w-1/2">
-            <p class="reveal-text mb-4">Con el apoyo de <strong>aliados estratégicos altamente calificados</strong>, prestamos el servicio de importaciones, brindando a nuestros clientes el acompañamiento necesario sobre los <strong>requisitos y formalidades legales</strong> establecidos para lograr una operación exitosa.</p>
+            <p class="reveal-text mb-4">
+              Con el apoyo de <strong
+                >aliados estratégicos altamente calificados</strong
+              >, prestamos el servicio de importaciones, brindando a nuestros
+              clientes el acompañamiento necesario sobre los <strong
+                >requisitos y formalidades legales</strong
+              > establecidos para lograr una operación exitosa.
+            </p>
             <ul class="list-disc list-inside space-y-2 mt-4 mb-4">
               <li class="reveal-text">Importaciones definitivas</li>
               <li class="reveal-text">Reimportación en el mismo estado</li>
-              <li class="reveal-text">Importación temporal para perfeccionamiento activo (Plan Vallejo)</li>
-              <li class="reveal-text">Importación en cumplimiento de garantía</li>
+              <li class="reveal-text">
+                Importación temporal para perfeccionamiento activo (Plan
+                Vallejo)
+              </li>
+              <li class="reveal-text">
+                Importación en cumplimiento de garantía
+              </li>
               <li class="reveal-text">Importación desde Zona Franca</li>
-              <li class="reveal-text">Preinspección de mercancía y descargues directos en 24 horas</li>
-              <li class="reveal-text">Pago de tributos aduaneros, retiro y entrega a satisfacción</li>
+              <li class="reveal-text">
+                Preinspección de mercancía y descargues directos en 24 horas
+              </li>
+              <li class="reveal-text">
+                Pago de tributos aduaneros, retiro y entrega a satisfacción
+              </li>
             </ul>
-            <p class="reveal-text text-center text-lg font-semibold mt-6">¡Contamos con una red global de aliados que nos permite ofrecer un servicio eficiente y seguro en todo el mundo!</p>
+            <p class="reveal-text text-center text-lg font-semibold mt-6">
+              ¡Contamos con una red global de aliados que nos permite ofrecer un
+              servicio eficiente y seguro en todo el mundo!
+            </p>
           </div>
         </div>
       </div>
 
       <!-- Exportaciones -->
-      <div id="tab-exportaciones" class="tab-content p-4 hidden font-open-sans mt-5">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+      <div
+        id="tab-exportaciones"
+        class="tab-content p-4 hidden font-open-sans mt-5"
+      >
+        <div
+          class="flex flex-col md:flex-row items-center md:items-start gap-6"
+        >
           <div class="w-full md:w-1/2">
-            <img src={tabs.find(t => t.id === "tab-exportaciones").image} alt="Exportaciones" class="w-full rounded-lg object-cover" />
+            <img
+              src={tabs.find((t) => t.id === "tab-exportaciones")!.image}
+              alt="Exportaciones"
+              class="w-full rounded-lg object-cover"
+            />
           </div>
           <div class="w-full md:w-1/2">
-            <p class="mb-4 reveal-text">Ofrecemos el servicio de <strong>carga internacional</strong> con tarifas negociadas en origen con las más reconocidas <strong>aerolíneas, navieras</strong> y <strong>transportadoras terrestres</strong> en las siguientes modalidades:</p>
+            <p class="mb-4 reveal-text">
+              Ofrecemos el servicio de <strong>carga internacional</strong> con tarifas
+              negociadas en origen con las más reconocidas <strong
+                >aerolíneas, navieras</strong
+              > y <strong>transportadoras terrestres</strong> en las siguientes modalidades:
+            </p>
             <ul class="list-disc list-inside space-y-2 mb-4">
               <li class="reveal-text">Exportación definitiva</li>
-              <li class="reveal-text">Exportación temporal para perfeccionamiento pasivo</li>
-              <li class="reveal-text">Exportación temporal para reimportación en el mismo estado</li>
+              <li class="reveal-text">
+                Exportación temporal para perfeccionamiento pasivo
+              </li>
+              <li class="reveal-text">
+                Exportación temporal para reimportación en el mismo estado
+              </li>
               <li class="reveal-text">Menajes (sujeto a verificación)</li>
               <li class="reveal-text">Reexportación</li>
               <li class="reveal-text">Reembarque</li>
-              <li class="reveal-text">Exportación de muestra sin valor comercial</li>
-              <li class="reveal-text">Exportación de servicios y desde Zonas Francas</li>
+              <li class="reveal-text">
+                Exportación de muestra sin valor comercial
+              </li>
+              <li class="reveal-text">
+                Exportación de servicios y desde Zonas Francas
+              </li>
             </ul>
-            <p class="text-center text-lg font-semibold mt-6 reveal-text">¡Comprometidos con la eficiencia, seguridad y puntualidad!</p>
+            <p class="text-center text-lg font-semibold mt-6 reveal-text">
+              ¡Comprometidos con la eficiencia, seguridad y puntualidad!
+            </p>
           </div>
         </div>
       </div>
 
       <!-- Otros Servicios -->
-      <div id="tab-otros-servicios" class="tab-content p-4 hidden font-open-sans mt-5">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+      <div
+        id="tab-otros-servicios"
+        class="tab-content p-4 hidden font-open-sans mt-5"
+      >
+        <div
+          class="flex flex-col md:flex-row items-center md:items-start gap-6"
+        >
           <div class="w-full md:w-1/2">
-            <img src={tabs.find(t => t.id === "tab-otros-servicios").image} alt="Otros servicios" class="w-full rounded-lg object-cover" />
+            <img
+              src={tabs.find((t) => t.id === "tab-otros-servicios")!.image}
+              alt="Otros servicios"
+              class="w-full rounded-lg object-cover"
+            />
           </div>
           <div class="w-full md:w-1/2">
-            <p class="reveal-text mb-4">También ofrecemos servicios complementarios para brindar una solución logística integral y personalizada:</p>
+            <p class="reveal-text mb-4">
+              También ofrecemos servicios complementarios para brindar una
+              solución logística integral y personalizada:
+            </p>
             <ul class="list-disc list-inside space-y-2">
               <li class="reveal-text">Asesorías en comercio exterior</li>
               <li class="reveal-text">Apertura de nuevos mercados</li>
@@ -127,9 +228,13 @@ const tabs = [
               <li class="reveal-text">Almacenaje de mercancías</li>
               <li class="reveal-text">Empaque y embalaje profesional</li>
               <li class="reveal-text">Control de inventarios</li>
-              <li class="reveal-text">Cobertura global bajo cualquier INCOTERM</li>
+              <li class="reveal-text">
+                Cobertura global bajo cualquier INCOTERM
+              </li>
             </ul>
-            <p class="reveal-text text-center text-lg font-semibold mt-6">¡Somos tu aliado estratégico en cada etapa de la cadena logística!</p>
+            <p class="reveal-text text-center text-lg font-semibold mt-6">
+              ¡Somos tu aliado estratégico en cada etapa de la cadena logística!
+            </p>
           </div>
         </div>
       </div>
