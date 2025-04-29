@@ -3,34 +3,38 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 const items = [
   {
-    yearRange: "2000–2005",
-    description: "Fundación de la empresa",
-    imagePath: "/landing-ship.jpg",
+    title: "Emprendiendo",
+    imagePath: "/1995-2000.jpeg",
+    text: `Ser independiente: generar empleo y brindar un servicio logístico certificado en calidad y compromiso. Tras años de experiencia en el sector, el fundador de El Dorado Air Cargo decidió dar el gran paso y emprender con una agencia propia.
+Con un equipo de apenas 5 personas, la empresa inició ofreciendo transporte aéreo hacia diferentes destinos. Desde el comienzo, fue pionera en la exportación de peces ornamentales y artículos de cuero.`,
   },
   {
-    yearRange: "2005–2010",
-    description: "Expansión nacional",
-    imagePath: "/landing-ship.jpg",
+    title: "Consolidandose",
+    imagePath: "/2000-2005.jpeg",
+    text: `Con la llegada de más clientes y el reconocimiento de aerolíneas,en esta etapa, el equipo se consolidó y se empezó a trabajar con tarifas preferenciales y mayor reconocimiento. La clave del crecimiento fue escuchar al cliente, fortalecer el departamento comercial y crear una operación más integral, incluyendo la recogida directa de carga.`,
   },
   {
-    yearRange: "2010–2015",
-    description: "Nuevos productos",
-    imagePath: "/landing-ship.jpg",
+    title: "Cambios",
+    imagePath: "/2005-2010.jpeg",
+    text: `A medida que el comercio exterior evolucionaba, El Dorado también lo hizo. Se adaptó rápidamente a los cambios del mercado, profesionalizando sus procesos y fortaleciendo su estructura interna.
+La empresa apostó por la innovación: implementó su propio sistema de transporte, certificaciones de calidad y abrió sucursales en Ecuador y Miami.`,
   },
   {
-    yearRange: "2015–2020",
-    description: "Crecimiento internacional",
-    imagePath: "/landing-ship.jpg",
+    title: "Expansión",
+    imagePath: "/2010-2015.jpeg",
+    text: `Durante estos años, El Dorado se consolidó a nivel nacional e internacional. Gracias al voz a voz de sus clientes, se convirtió en un referente de buen servicio. Con empresas multinacionales como clientes. Se fidelizó a través de un servicio más humano y personalizado. La inversión en tecnología permitió una logística más ágil y procesos más eficientes.`,
   },
   {
-    yearRange: "2020–2025",
-    description: "Innovaciones tecnológicas",
-    imagePath: "/landing-ship.jpg",
+    title: "Compromiso por la vida",
+    imagePath: "/2015-2020.jpeg",
+    text: `Los cambios globales, nuevas normativas y la pandemia no detuvieron a El Dorado. Al contrario, reafirmaron su compromiso. La importancia de las certificaciones IATA e ISO 28000 para estar a la altura de un momento de alta auditoria a nivel mundial y un compromiso por la vida.`,
   },
   {
-    yearRange: "2025+",
-    description: "Visión a futuro",
-    imagePath: "/landing-ship.jpg",
+    title: "Presente y futuro digital",
+    imagePath: "/2020-2025.jpeg",
+    text: `Hoy, El Dorado Air Cargo S.A.S. es una empresa moderna, adaptada a las nuevas generaciones y comprometida con un servicio transparente, rápido y personalizado.
+Con la tecnología como aliada y la experiencia como base, la empresa sigue impulsando el comercio exterior desde la asesoría hasta la operación logística.
+Cumplir 30 años no es solo un logro empresarial, es un legado familiar y profesional que continúa construyéndose. El sueño ahora es que la empresa trascienda generaciones, con la misma pasión que la vio nacer.`,
   },
 ];
 ---
@@ -39,32 +43,31 @@ const items = [
   metaTitle="Historia"
   metaDescription="Conoce la historia de El Dorado Air Cargo, desde su fundación hasta su expansión internacional y visión innovadora hacia el futuro."
 >
-  <section class="max-w-7xl mx-auto px-4 py-16 font-open-sans">
+  <section class="max-w-4xl mx-auto px-4 py-16 font-open-sans">
     <h2 class="text-center text-4xl font-bold text-gray-900 mb-6">
       Nuestra Historia
     </h2>
     <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-      Descubre cómo hemos transformado ideas en logros y proyectos en
-      realidades. Este es nuestro camino recorrido y los momentos que han
-      definido quiénes somos.
+      Descubre cómo hemos transformado ideas en logros y proyectos en realidades. Este es nuestro camino recorrido y los momentos que han definido quiénes somos.
     </p>
 
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6 mb-14"
-    >
+    <div class="relative border-l border-gray-300 pl-6 space-y-12">
       {
-        items.map((item, index) => (
-          <div class="timeline-card bg-white p-6 rounded-lg shadow-md text-center h-full">
-            <img
-              src={item.imagePath}
-              alt={item.yearRange}
-              class="w-20 h-20 object-cover rounded-full mx-auto mb-4 border-2 border-blue-300"
-              loading="lazy"
-            />
-            <h3 class="text-lg font-semibold text-gray-900">
-              {item.yearRange}
-            </h3>
-            <p class="text-gray-600 text-sm mt-2">{item.description}</p>
+        items.map((item) => (
+          <div class="relative">
+            <div class="absolute -left-3 top-1 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow-md"></div>
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col sm:flex-row items-start gap-4">
+              <img
+                src={item.imagePath}
+                alt={`Imagen de la etapa ${item.title}`}
+                class="w-20 h-20 object-cover rounded-full border-2 border-blue-300"
+                loading="lazy"
+              />
+              <div>
+                <h3 class="text-blue-800 text-lg font-bold mb-2">{item.title}</h3>
+                <p class="text-gray-600 text-sm whitespace-pre-line text-justify">{item.text}</p>
+              </div>
+            </div>
           </div>
         ))
       }
