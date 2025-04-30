@@ -8,7 +8,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.eldoradoaircargo.com",
+  site: "https://www.eldoradoaircargo.com/",
   integrations: [react(), icon(), sitemap()],
   server: {
     allowedHosts: true,
