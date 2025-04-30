@@ -71,58 +71,58 @@ import Button from "../components/Button.astro";
     </div>
 
     <!-- Carousel Container -->
-    <div class="relative w-full bg-white py-6 overflow-hidden">
+    <div class="relative w-full bg-white py-6 overflow-hidden min-h-[100px]">
       <!-- Partners Row -->
       <div class="w-full mt-16">
         <h3
-          class="text-center bg-white text-2xl font-bold text-blue-dark mb-6 mtp-1 reveal-text"
+          class="text-center bg-white text-2xl font-bold text-blue-dark mb-6 reveal-text"
         >
           Nuestros proveedores
         </h3>
       </div>
       <!-- Inner carousel that scrolls -->
-      <div class="animate-scroll flex gap-12 w-max mb-14">
+      <div class="flex gap-12 w-max min-w-full mb-14 animate-scroll sm:overflow-x-auto sm:animate-none px-6">
         <img
           src="/avianca.png"
           alt="Logo de Avianca, proveedor logístico de El Dorado Air Cargo"
-          class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300"
+          class="h-20 w-auto transition duration-300"
         />
         <img
           src="/copa.jpg"
           alt="Logo de Copa Airlines, aliado estratégico en transporte de carga"
-          class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300"
+          class="h-20 w-auto transition duration-300"
         />
         <img
           src="/qatar.png"
           alt="Logo de Qatar Airways, socio de carga internacional de El Dorado Air Cargo"
-          class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300"
+          class="h-20 w-auto transition duration-300"
         />
         <img
           src="/dhl.png"
           alt="Logo de DHL, proveedor global de soluciones logísticas"
-          class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300"
+          class="h-20 w-auto transition duration-300"
         />
 
-        <!-- Repite las imágenes para que el loop se vea continuo -->
+        <!-- Repite las imágenes para loop continuo -->
         <img
           src="/avianca.png"
           alt="Logo de Avianca, proveedor logístico de El Dorado Air Cargo"
-          class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300"
+          class="h-20 w-auto transition duration-300"
         />
         <img
           src="/copa.jpg"
           alt="Logo de Copa Airlines, aliado estratégico en transporte de carga"
-          class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300"
+          class="h-20 w-auto transition duration-300"
         />
         <img
           src="/qatar.png"
           alt="Logo de Qatar Airways, socio de carga internacional de El Dorado Air Cargo"
-          class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300"
+          class="h-20 w-auto transition duration-300"
         />
         <img
           src="/dhl.png"
           alt="Logo de DHL, proveedor global de soluciones logísticas"
-          class="h-20 w-auto #grayscale hover:grayscale-0 transition duration-300"
+          class="h-20 w-auto transition duration-300"
         />
       </div>
     </div>
@@ -130,7 +130,7 @@ import Button from "../components/Button.astro";
     <style>
       @keyframes scroll {
         0% {
-          transform: translateX(40%);
+          transform: translateX(0%);
         }
         100% {
           transform: translateX(-50%);
@@ -140,6 +140,7 @@ import Button from "../components/Button.astro";
       .animate-scroll {
         animation: scroll 30s linear infinite;
       }
+      
     </style>
   </section>
 </MainLayout>
