@@ -43,7 +43,7 @@ const jsonLd = {
   ]
 };
 
-
+const canonicalUrl = `${Astro.url.origin}${Astro.url.pathname.replace(/\/$/, "") || "/"}`;
 ---
 
 <!doctype html>
@@ -51,6 +51,7 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="viewport" content="width=device-width" />
     <title>El Dorado Air Cargo {metaTitle ? ` | ${metaTitle}` : ""}</title>
     <meta
