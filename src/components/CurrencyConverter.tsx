@@ -69,7 +69,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
   }, [currency]);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md text-center max-w-md font-open-sans">
+    <div className="bg-white/80 p-6 rounded-lg shadow-md text-center max-w-md font-open-sans">
       {currencyToCop === 0 ? (
         <p className="text-lg font-bold">No se pudo traer la información</p>
       ) : (
