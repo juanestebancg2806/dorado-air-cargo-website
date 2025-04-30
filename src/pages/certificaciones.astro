@@ -5,11 +5,11 @@ import MainLayout from "../layouts/MainLayout.astro";
 const certificaciones = [
   {
     nombre: "Acreditación IATA 2025",
-    src: "CERTIFICADO ACREDITACION IATA 2025 BOGOTA_page-0001.jpg",
+    src: "certificado-iata.jpg",
   },
   {
     nombre: "Certificación ISO 28000",
-    src: "CERTIFICADO DIGITAL - EL DORADO AIR CARGO SAS - ISO 28000 BUREAU VERITAS_page-0001.jpg",
+    src: "certificado-iso.jpg",
   },
 ];
 ---
@@ -40,7 +40,7 @@ const certificaciones = [
             <h3 class="text-2xl font-semibold text-blue-dark mb-4">{nombre}</h3>
             <img
               src={src}
-              alt={`Certificación ${index + 1} - ${nombre}`}
+              alt={`Certificación ${nombre} otorgada a El Dorado Air Cargo S.A.S`}
               class="w-full h-auto rounded-md object-contain max-h-[500px]"
             />
           </div>
