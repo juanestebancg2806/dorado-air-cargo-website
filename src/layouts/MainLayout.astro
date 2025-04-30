@@ -1,5 +1,8 @@
 ---
 import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { TIKTOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "../utils/constants";
 
 interface Props {
   metaTitle?: string;
@@ -8,9 +11,39 @@ interface Props {
 
 const { metaTitle, metaDescription } = Astro.props;
 
-import Navbar from "../components/Navbar.astro";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "El Dorado Air Cargo S.A.S.",
+  "url": "https://www.eldoradoaircargo.com",
+  "logo": "https://www.eldoradoaircargo.com/logo.png",
+  "description": "Empresa colombiana con 30 años de experiencia en logística y transporte de carga nacional e internacional.",
+  "founder": {
+    "@type": "Person",
+    "name": "Huber López Jaramillo"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Carrera 70C No. 49 - 56, Normandia",
+    "addressLocality": "Bogotá",
+    "addressRegion": "Cundinamarca",
+    "addressCountry": "CO"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+57-601-7426218",
+    "contactType": "customer service",
+    "areaServed": "CO",
+    "availableLanguage": ["Spanish"]
+  },
+  "sameAs": [
+    TIKTOK_URL,
+    INSTAGRAM_URL,
+    LINKEDIN_URL
+  ]
+};
 
-import Footer from "../components/Footer.astro";
+
 ---
 
 <!doctype html>
@@ -52,7 +85,11 @@ import Footer from "../components/Footer.astro";
     />
 
     <meta name="twitter:image" content={"/logo-redes.jpeg"} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/<\/script>/g, '<\\/script>')}>
+      
+    </script>
   </head>
+  
   <body>
     <Navbar />
     <main>

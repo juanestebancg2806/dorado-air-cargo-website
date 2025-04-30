@@ -1,9 +1,8 @@
 ---
-interface NavbarData {
-  name: string;
-  link: string;
-}
-const footerMenuOptions: NavbarData[] = [
+import type { NavigationData } from "../utils/types";
+import { TIKTOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "../utils/constants";
+
+const footerMenuOptions: NavigationData[] = [
   { name: "Inicio", link: "/" },
   { name: "Servicios", link: "/servicios" },
   { name: "Historia", link: "/historia" },
@@ -33,7 +32,8 @@ const footerMenuOptions: NavbarData[] = [
           logística para las operaciones de comercio exterior.
         </p>
         <div class="flex gap-4 pt-2">
-          <a
+          {
+            /* <a
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -43,30 +43,23 @@ const footerMenuOptions: NavbarData[] = [
               class="h-7 w-7"
               alt="Facebook de El Dorado Air Cargo"
             />
-          </a>
-          <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+          </a>  */
+          }
+          <a href={TIKTOK_URL} target="_blank" rel="noopener noreferrer">
             <img
-              src="./x-logo.svg"
+              src="./tiktok-logo.svg"
               class="h-7 w-7"
-              alt="Twitter/X de El Dorado Air Cargo"
+              alt="Tiktok de El Dorado Air Cargo"
             />
           </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
             <img
               src="./linkedin-logo.svg"
               class="h-7 w-7"
               alt="LinkedIn de El Dorado Air Cargo"
             />
           </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
             <img
               src="./instagram-logo.svg"
               class="h-7 w-7"

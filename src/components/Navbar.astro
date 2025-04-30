@@ -1,14 +1,11 @@
 ---
 import clsx from "clsx";
+import type { NavigationData } from "../utils/types";
 
-interface NavbarData {
-  name: string;
-  link: string;
-}
 
 const currentPage: string = "/" + Astro.url.pathname.replaceAll("/", "");
 
-const navbarData: NavbarData[] = [
+const navbarData: NavigationData[] = [
   { name: "Inicio", link: "/" },
   { name: "Servicios", link: "/servicios" },
   { name: "Historia", link: "/historia" },
