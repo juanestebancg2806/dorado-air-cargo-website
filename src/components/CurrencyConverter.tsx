@@ -48,7 +48,8 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
           const fallbackResponse = await fetch(
             `${FALLBACK_API_URL}${currency}.json`
           );
-          const fallbackData: CurrencyApiResponse = await fallbackResponse.json();
+          const fallbackData: CurrencyApiResponse =
+            await fallbackResponse.json();
           const fallbackRate = fallbackData[currency]?.cop ?? null;
 
           if (fallbackRate !== null) {
@@ -69,15 +70,15 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
   }, [currency]);
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md text-center max-w-md font-open-sans">
+    <div className="bg-blue-dark/80 text-white p-6 rounded-lg shadow-md text-center max-w-md font-open-sans">
       {currencyToCop === 0 ? (
         <p className="text-lg font-bold">No se pudo traer la información</p>
       ) : (
         <>
-          <h2 className="text-lg text-gray-600">{title}</h2>
+          <h2 className="text-lg">{title}</h2>
 
           {loading ? (
-            <p className="text-gray-500 text-lg">Cargando...</p>
+            <p className="text-lg">Cargando...</p>
           ) : (
             <p className="text-lg font-bold">
               {currencyToCop?.toLocaleString("es-CO")} Pesos colombianos

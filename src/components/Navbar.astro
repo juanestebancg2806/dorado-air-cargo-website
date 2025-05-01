@@ -1,14 +1,11 @@
 ---
 import clsx from "clsx";
+import type { NavigationData } from "../utils/types";
 
-interface NavbarData {
-  name: string;
-  link: string;
-}
 
 const currentPage: string = "/" + Astro.url.pathname.replaceAll("/", "");
 
-const navbarData: NavbarData[] = [
+const navbarData: NavigationData[] = [
   { name: "Inicio", link: "/" },
   { name: "Servicios", link: "/servicios" },
   { name: "Historia", link: "/historia" },
@@ -19,7 +16,7 @@ const navbarData: NavbarData[] = [
 ---
 
 <header
-  class="px-9 py-3 shadow-sm sticky top-0 z-50 bg-white/90 backdrop-blur-lg transition-shadow duration-300 font-open-sans"
+  class="px-9 py-3 shadow-sm sticky top-0 z-50 bg-white backdrop-blur-lg transition-shadow duration-300 font-open-sans"
 >
   <nav class="flex items-center justify-between max-w-screen-2xl mx-auto">
     <a
@@ -45,7 +42,12 @@ const navbarData: NavbarData[] = [
       aria-label="Open menu"
       aria-expanded="false"
     >
-      <img src="/burger-menu-icon.svg" class="h-8 w-8" alt="Open menu" />
+      <img
+        src="/burger-menu-icon.svg"
+        class="h-8 w-8"
+        alt="Abrir menú de navegación"
+        loading="lazy"
+      />
     </button>
 
     <button
@@ -53,7 +55,13 @@ const navbarData: NavbarData[] = [
       class="lg:hidden p-3 rounded-md hidden transition-transform hover:scale-110"
       aria-label="Close menu"
     >
-      <img src="/close-menu-icon.svg" class="h-8 w-8" alt="Close menu" />
+      <img
+        src="/close-menu-icon.svg"
+        class="h-8 w-8"
+        alt="Close menu"
+        alt="Cerrar menú de navegación"
+        loading="lazy"
+      />
     </button>
 
     <!-- Desktop Navigation -->

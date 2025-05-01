@@ -40,6 +40,7 @@ body {
 }
 main {
   flex-grow: 1; /* Pushes footer to bottom when content is short */
+  display: block
 }
 
 

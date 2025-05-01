@@ -4,13 +4,15 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Button from "../components/Button.astro";
 ---
 
-<MainLayout metaTitle="Inicio">
+<MainLayout
+  metaTitle="Inicio"
+  metaDescription="Conecta tu negocio con el mundo con El Dorado Air Cargo S.A.S. Expertos en logística y transporte de carga nacional e internacional, con 30 años de experiencia."
+>
   <section class="relative min-h-[500px] font-open-sans">
     <!-- Background Image with Overlay -->
-    <div
-      class="absolute inset-0 bg-cover bg-center bg-[url('/landing-ship.jpg')]"
-    >
-      <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 bg-cover bg-center bg-[url('/bg-index-page.jpg')]">
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-blue-dark/50"></div>
     </div>
 
     <!-- Content Container -->
@@ -19,7 +21,7 @@ import Button from "../components/Button.astro";
     >
       <!-- Left Content: Progressive Text Appearance -->
       <div
-        class="max-w-screen text-gray-100 bg-white/10 p-6 rounded-lg shadow-lg"
+        class="max-w text-white bg-blue-dark/80 p-6 rounded-lg shadow-lg backdrop-blur/10"
       >
         <h2 class="font-bold reveal-text" style="animation-delay: 0.2s;">
           Bienvenidos a
@@ -32,9 +34,10 @@ import Button from "../components/Button.astro";
           El Dorado Air Cargo S.A.S.
         </h2>
         <p class="mt-4 text-lg reveal-text" style="animation-delay: 0.8s;">
-          Con más de <strong>25 años de experiencia</strong>, conectamos tu
-          negocio con el mundo. Somos tu aliado estratégico en
-          <strong>logística y transporte de carga</strong>, garantizando <strong
+          Con <strong class="text-white">30 años de experiencia</strong>,
+          conectamos tu negocio con el mundo. Somos tu aliado estratégico en
+          <strong class="text-white">logística y transporte de carga</strong
+          >, garantizando <strong class="text-white"
             >seguridad, calidad y compromiso</strong
           > en cada envío.
         </p>
@@ -51,7 +54,7 @@ import Button from "../components/Button.astro";
         </ul>
 
         <!-- Using the Button component -->
-        <div class="mt-6 reveal-text" style="animation-delay: 2s;">
+        <div class="my-6 reveal-text" style="animation-delay: 2s;">
           <Button href="/contacto" text="Cotiza tu envío ahora" />
         </div>
       </div>
@@ -66,5 +69,78 @@ import Button from "../components/Button.astro";
         />
       </div>
     </div>
+
+    <!-- Carousel Container -->
+    <div class="relative w-full bg-white py-6 overflow-hidden min-h-[100px]">
+      <!-- Partners Row -->
+      <div class="w-full mt-16">
+        <h3
+          class="text-center bg-white text-2xl font-bold text-blue-dark mb-6 reveal-text"
+        >
+          Nuestros proveedores
+        </h3>
+      </div>
+      <!-- Inner carousel that scrolls -->
+      <div class="flex gap-12 w-max min-w-full mb-14 animate-scroll sm:overflow-x-auto sm:animate-none px-6">
+        <img
+          src="/avianca.png"
+          alt="Logo de Avianca, proveedor logístico de El Dorado Air Cargo"
+          class="h-20 w-auto transition duration-300"
+        />
+        <img
+          src="/copa.jpg"
+          alt="Logo de Copa Airlines, aliado estratégico en transporte de carga"
+          class="h-20 w-auto transition duration-300"
+        />
+        <img
+          src="/qatar.png"
+          alt="Logo de Qatar Airways, socio de carga internacional de El Dorado Air Cargo"
+          class="h-20 w-auto transition duration-300"
+        />
+        <img
+          src="/dhl.png"
+          alt="Logo de DHL, proveedor global de soluciones logísticas"
+          class="h-20 w-auto transition duration-300"
+        />
+
+        <!-- Repite las imágenes para loop continuo -->
+        <img
+          src="/avianca.png"
+          alt="Logo de Avianca, proveedor logístico de El Dorado Air Cargo"
+          class="h-20 w-auto transition duration-300"
+        />
+        <img
+          src="/copa.jpg"
+          alt="Logo de Copa Airlines, aliado estratégico en transporte de carga"
+          class="h-20 w-auto transition duration-300"
+        />
+        <img
+          src="/qatar.png"
+          alt="Logo de Qatar Airways, socio de carga internacional de El Dorado Air Cargo"
+          class="h-20 w-auto transition duration-300"
+        />
+        <img
+          src="/dhl.png"
+          alt="Logo de DHL, proveedor global de soluciones logísticas"
+          class="h-20 w-auto transition duration-300"
+        />
+      </div>
+    </div>
+
+    <style>
+      @keyframes scroll {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .animate-scroll {
+        animation: scroll 30s linear infinite;
+      }
+      
+    </style>
   </section>
 </MainLayout>

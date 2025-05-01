@@ -1,15 +1,49 @@
 ---
 import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { TIKTOK_URL, INSTAGRAM_URL, LINKEDIN_URL } from "../utils/constants";
 
 interface Props {
   metaTitle?: string;
+  metaDescription?: string;
 }
 
-const { metaTitle } = Astro.props;
+const { metaTitle, metaDescription } = Astro.props;
 
-import Navbar from "../components/Navbar.astro";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "El Dorado Air Cargo S.A.S.",
+  "url": "https://www.eldoradoaircargo.com",
+  "logo": "https://www.eldoradoaircargo.com/logo.png",
+  "description": "Empresa colombiana con 30 años de experiencia en logística y transporte de carga nacional e internacional.",
+  "founder": {
+    "@type": "Person",
+    "name": "Huber López Jaramillo"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Carrera 70C No. 49 - 56, Normandia",
+    "addressLocality": "Bogotá",
+    "addressRegion": "Cundinamarca",
+    "addressCountry": "CO"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+57-601-7426218",
+    "contactType": "customer service",
+    "areaServed": "CO",
+    "availableLanguage": ["Spanish"]
+  },
+  "sameAs": [
+    TIKTOK_URL,
+    INSTAGRAM_URL,
+    LINKEDIN_URL
+  ]
+};
 
-import Footer from "../components/Footer.astro";
+const canonicalUrl = `${Astro.url.origin}${Astro.url.pathname.replace(/\/$/, "") || "/"}`;
 ---
 
 <!doctype html>
@@ -17,31 +51,46 @@ import Footer from "../components/Footer.astro";
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
     <meta name="viewport" content="width=device-width" />
     <title>El Dorado Air Cargo {metaTitle ? ` | ${metaTitle}` : ""}</title>
     <meta
       name="description"
-      content={"El Dorado Air Cargo S.A.S: Manejo nacional e internacional de sus cargas"}
+      content={metaDescription ??
+        "El Dorado Air Cargo S.A.S: Manejo nacional e internacional de sus cargas"}
     />
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content={`El Dorado Air Cargo S.A.S`} />
+    <meta
+      property="og:title"
+      content={`El Dorado Air Cargo S.A.S${metaTitle ? ` | ${metaTitle}` : ""}`}
+    />
     <meta
       property="og:description"
-      content={"Manejo nacional e internacional de sus cargas"}
+      content={metaDescription ??
+        "Manejo nacional e internacional de sus cargas"}
     />
+    <meta property="og:url" content={Astro.url.href} />
     <meta property="og:image" content={"/logo-redes.jpeg"} />
-    <meta property="og:url" content="https://www.eldoradoaircargo.com/" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`El Dorado Air Cargo S.A.S`} />
+    <meta
+      name="twitter:title"
+      content={`El Dorado Air Cargo S.A.S${metaTitle ? ` | ${metaTitle}` : ""}`}
+    />
     <meta
       name="twitter:description"
-      content={"Manejo nacional e internacional de sus cargas"}
+      content={metaDescription ??
+        "Manejo nacional e internacional de sus cargas"}
     />
-    <meta name="twitter:image" content={"/logo.png"} />
+
+    <meta name="twitter:image" content={"/logo-redes.jpeg"} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/<\/script>/g, '<\\/script>')}>
+      
+    </script>
   </head>
+  
   <body>
     <Navbar />
     <main>

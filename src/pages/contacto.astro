@@ -3,7 +3,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<MainLayout metaTitle="Contacto">
+<MainLayout
+  metaTitle="Contacto"
+  metaDescription="Contáctanos para resolver tus dudas y recibir asesoría personalizada en transporte y logística de carga nacional e internacional."
+>
   <!-- Banner -->
   <section
     class="bg-yellow-orange shadow-sm p-6 md:p-10 mb-14 md:mb-20 flex flex-col md:flex-row items-center gap-6 font-open-sans min-h-52 justify-center md:justify-start"
@@ -54,10 +57,10 @@ import { Icon } from "astro-icon/components";
           <div>
             <strong class="block">Email:</strong>
             <a
-              href="mailto:contactenos@eldoradoaircargo.com"
+              href="mailto:eldoradoaircargosas@gmail.com"
               class="leading-snug break-words text-blue-700 underline hover:text-blue-800 transition-colors"
             >
-              contactenos@eldoradoaircargo.com
+              eldoradoaircargosas@gmail.com
             </a>
           </div>
         </div>
@@ -76,20 +79,19 @@ import { Icon } from "astro-icon/components";
       </section>
 
       <!-- Columna derecha: Formulario -->
+      <!-- Columna derecha: Formulario -->
       <section class="flex-1">
-        <div
-          class="relative w-full pt-[140%] lg:pt-[1091px] rounded-xl overflow-hidden shadow-sm"
-        >
+        <div class="w-full rounded-xl overflow-hidden shadow-sm">
           <iframe
             src="https://docs.google.com/forms/d/e/1FAIpQLSdOSJ9Ck6O2Z_DQLIt9DVbAKc_TyvyKK-sMZUEVdO99B0S4IQ/viewform?embedded=true"
-            class="absolute top-0 left-0 w-full h-full"
-            width="640"
-            height="1094"
+            class="w-full h-[1200px]"
             frameborder="0"
             marginheight="0"
             marginwidth="0"
-            loading="lazy">Cargando…</iframe
+            loading="lazy"
           >
+            Cargando…
+          </iframe>
         </div>
       </section>
     </div>
