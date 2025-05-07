@@ -17,10 +17,6 @@ api.interceptors.response.use(
   (error: AxiosError) => {
     console.error(`[Error] ${error.response?.status} - ${error.config?.url}`);
 
-    if (error.response?.status === 401) {
-      console.warn("Unauthorized! Redirecting to login...");
-    }
-
     return Promise.reject(error);
   }
 );
