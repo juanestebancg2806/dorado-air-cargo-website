@@ -1,48 +1,80 @@
-# Astro Starter Kit: Basics
+# El Dorado Air Cargo S.A.S. 🌍✈️
 
-```sh
-npm create astro@latest -- --template basics
-```
+**Official website for El Dorado Air Cargo S.A.S.**, a Colombian logistics and air cargo company with over 30 years of experience in national and international freight transportation.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Built with [Astro](https://astro.build/) + [React](https://react.dev/) + [Tailwind CSS](https://tailwindcss.com/), optimized for performance and SEO.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🔗 Live Site
 
-## 🚀 Project Structure
+[https://www.eldoradoaircargo.com](https://www.eldoradoaircargo.com) (Not deployed yet)
 
-Inside of your Astro project, you'll see the following folders and files:
+---
+
+## 📦 Tech Stack
+
+- **Astro** — Static Site Generator (SSG)
+- **React** — UI components
+- **Tailwind CSS** — Utility-first styling
+- **Astro Icon** — Icon integration
+- **@astrojs/sitemap** — Auto-generated sitemaps
+- **SEO Optimized** — Meta tags, canonical URLs, `robots.txt`, `llm.txt`, JSON-LD structured data
+
+---
+
+## 📁 Project Structure
 
 ```text
-/
-├── public/
-│   └── favicon.svg
+├── public/              # Static assets (robots.txt, images, favicon, etc.)
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/      # Reusable components (Navbar, Footer, etc.)
+│   ├── layouts/         # MainLayout with head meta tags
+│   ├── pages/           # Routes: /, /servicios, /contacto, etc.
+│   └── styles/          # Global styles with Tailwind
+├── astro.config.mjs     # Astro project config (includes sitemap and site URL)
+└── tsconfig.json        # TypeScript config
 ```
+---
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Running
 
-## 🧞 Commands
+1. **Install dependencies**:
 
-All commands are run from the root of the project, from a terminal:
+   ```bash
+   npm install
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+2. **Start dev server**:
+    ```bash
+   npm run dev #This will start the site at http://localhost:4321 by default.
+   ```
+  
 
-## 👀 Want to learn more?
+3. **Build for production:**:
+    ```bash
+   npm run build #The static output will be generated in the dist/ folder.
+   ```
+  
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🧠 SEO & Accessibility
+
+- ✅ Meta title and description for each page
+- ✅ Canonical URLs to prevent duplicate content
+- ✅ Open Graph and Twitter card tags for social sharing
+- ✅ JSON-LD for structured organization data
+- ✅ `sitemap.xml` and `robots.txt` for search engine indexing
+- ✅ `llm.txt` for large language model (AI) crawler permissions
+- ✅ Descriptive and optimized `alt` attributes on all images
+- ✅ Accessible markup and responsive layout
+
+## 📄 Sitemap & Robots
+
+- **Sitemap**: Automatically generated using `@astrojs/sitemap`
+  - Output: `/sitemap-index.xml` and `/sitemap-0.xml`
+- **robots.txt**: Located in `public/robots.txt`
+  - Allows search engines to index all content
+  - Points to the sitemap URL
+- **llm.txt**: Located in `public/llm.txt`
+  - Grants permission to LLM crawlers for indexing
+
