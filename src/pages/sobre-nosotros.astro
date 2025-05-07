@@ -1,0 +1,133 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+// Lista de siglas con su explicación description
+const acronyms = [
+  {
+    acronym: "FOB",
+    description: "Free On Board",
+    image: "/fob.png",
+  },
+  {
+    acronym: "B2B",
+    description: "Business to Business",
+    image: "/b2b.png",
+  },
+  {
+    acronym: "AWB",
+    description: "Air Waybill",
+    image: "/awb.png",
+  },
+  {
+    acronym: "C/O",
+    description: "Certificate Origin",
+    image: "/co.png",
+  },
+  {
+    acronym: "CRM",
+    description: "Customer Relationship Management",
+    image: "/crm.png",
+  },
+  {
+    acronym: "INCOTERMS",
+    description: "International Commercial Terms",
+    image: "/incoterms.png",
+  },
+  {
+    acronym: "EDD",
+    description: "Expected Delivery Date",
+    image: "/edd.png",
+  },
+];
+---
+
+<MainLayout metaTitle="Sobre Nosotros" metaDescription="Sobre Nosotros">
+  <!-- Banner - Sobre Nosotros -->
+  <section
+    class="bg-blue-dark shadow-sm p-6 md:p-10 mb-14 md:mb-20 flex flex-col md:flex-row items-center gap-6 font-open-sans min-h-52 justify-center md:justify-start"
+  >
+    <div class="md:ml-10 text-justify">
+      <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">
+        Sobre Nosotros
+      </h1>
+      <p class="text-white max-w-xl">
+        En El Dorado Air Cargo construimos confianza desde hace más de 30 años.
+        Nuestro equipo combina experiencia, compromiso y visión para ofrecer
+        soluciones logísticas que conectan negocios con el mundo.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mapa con contexto -->
+  <section class="w-full py-12 px-6 md:px-12 font-open-sans">
+    <div class="max-w-6xl mx-auto text-center mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-blue-dark mb-4">
+        Conexiones globales que cruzan fronteras
+      </h2>
+      <p class="text-lg text-black">
+        Nuestro mapa refleja la presencia internacional de El Dorado Air Cargo.
+        Cada marca indica los países desde donde exportamos o importamos
+        mercancía para nuestros clientes.
+      </p>
+    </div>
+
+    <!-- image principal -->
+    <div class="flex justify-center">
+      <img
+        src="/mapamundi.png"
+        alt="Mapamundi"
+        class="w-full max-w-6xl h-auto rounded-lg shadow-lg object-contain"
+      />
+    </div>
+  </section>
+
+  <!-- Sección de acronimos -->
+  <section class="py-16 px-6 md:px-12 font-open-sans mb-14">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-blue-dark mb-4">
+        Acrónimos
+      </h2>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Acrónimos de comercio exterior que más utilizamos
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center"
+    >
+      {
+        acronyms.map(({ acronym, description, image }, index) => (
+          <div
+            class="w-full max-w-md bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center space-y-4 transition-transform duration-700 hover:scale-105 opacity-0 translate-y-10 animate-fade-in-up"
+            style={`animation-delay: ${index * 0.2}s`}
+          >
+            <img
+              src={image}
+              alt={acronym}
+              class="w-24 h-24 object-cover rounded-full"
+            />
+            <h3 class="text-4xl font-extrabold text-blue-dark">{acronym}</h3>
+            <p class="text-gray-600 text-sm">{description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <style>
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+  </style>
+</MainLayout>
