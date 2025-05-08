@@ -11,6 +11,7 @@ const navbarData: NavigationData[] = [
   { name: "Historia", link: "/historia" },
   { name: "Fundadores", link: "/fundadores" },
   { name: "Certificaciones", link: "/certificaciones" },
+  { name: "Sobre Nosotros", link: "/sobre-nosotros" },
   { name: "Contacto", link: "/contacto" },
 ];
 ---
@@ -65,7 +66,7 @@ const navbarData: NavigationData[] = [
     </button>
 
     <!-- Desktop Navigation -->
-    <ul class="hidden lg:flex gap-10">
+    <ul class="hidden lg:flex gap-8">
       {
         navbarData.map(({ link, name }) => (
           <li>
