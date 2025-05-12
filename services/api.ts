@@ -2,11 +2,9 @@ import axios, { AxiosError } from "axios";
 
 // Create an Axios instance
 const api = axios.create({
+  withCredentials: false,
   headers: {
     "Content-Type": "application/json",
-    "Cache-Control": "no-cache",
-    Pragma: "no-cache",
-    Expires: "0",
   },
 });
 

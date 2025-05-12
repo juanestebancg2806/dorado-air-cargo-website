@@ -33,11 +33,10 @@ const fetchFromPrimaryAPI = async (
 const fetchFromFallbackAPI = async (
   currency: Currency
 ): Promise<number | null> => {
-  const response = await fetch(
+  const response = await api.get<CurrencyApiResponse>(
     `${FALLBACK_API_URL}${currency}.json?nocache=${Date.now()}`
   );
-  const data: CurrencyApiResponse = await response.json();
-  return data[currency]?.cop ?? null;
+  return response.data[currency]?.cop ?? null;
 };
 
 /**
