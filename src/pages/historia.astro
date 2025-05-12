@@ -1,7 +1,9 @@
 ---
+import HistoryTimeline from "../components/HistoryTimeline";
 import MainLayout from "../layouts/MainLayout.astro";
+import type { HistoryTimelineData } from "../utils/types";
 
-const items = [
+const items: HistoryTimelineData[] = [
   {
     title: "Emprendiendo",
     imagePath: "/1995-2000.jpeg",
@@ -48,28 +50,11 @@ Cumplir 30 años no es solo un logro empresarial, es un legado familiar y profes
       Nuestra Historia
     </h2>
     <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
-      Descubre cómo hemos transformado ideas en logros y proyectos en realidades. Este es nuestro camino recorrido y los momentos que han definido quiénes somos.
+      Descubre cómo hemos transformado ideas en logros y proyectos en
+      realidades. Este es nuestro camino recorrido y los momentos que han
+      definido quiénes somos.
     </p>
 
-    <div class="relative border-l border-gray-300 pl-6 space-y-12">
-      {
-        items.map((item) => (
-          <div class="relative">
-            <div class="absolute -left-3 top-1 w-6 h-6 bg-blue-600 rounded-full border-4 border-white shadow-md"></div>
-            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col sm:flex-row items-start gap-4">
-              <img
-                src={item.imagePath}
-                alt={`Etapa "${item.title}" de El Dorado Air Cargo S.A.S en su evolución logística y empresarial`}
-                class="w-32 h-32 object-cover rounded-xl border-2 border-blue-300 shadow-md"
-              />
-              <div>
-                <h3 class="text-blue-800 text-lg font-bold mb-2">{item.title}</h3>
-                <p class="text-gray-600 text-sm whitespace-pre-line text-justify">{item.text}</p>
-              </div>
-            </div>
-          </div>
-        ))
-      }
-    </div>
+    <HistoryTimeline items={items} client:load />
   </section>
 </MainLayout>
