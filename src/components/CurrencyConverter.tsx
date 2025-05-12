@@ -1,17 +1,5 @@
 import { useState, useEffect } from "react";
-import api from "../../services/api";
-
-const API_URL =
-  "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/";
-const FALLBACK_API_URL = "https://latest.currency-api.pages.dev/v1/currencies/";
-
-// https://github.com/fawazahmed0/exchange-api?tab=readme-ov-file
-
-interface CurrencyApiResponse {
-  date: string;
-  usd?: Record<string, number>;
-  eur?: Record<string, number>;
-}
+import { fetchExchangeRate } from "../../services/currencyService";
 
 interface CurrencyConverterProps {
   currency?: "usd" | "eur";
@@ -24,54 +12,36 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({
 }) => {
   const [currencyToCop, setCurrencyToCop] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    const fetchExchangeRates = async () => {
+    const getExchangeRate = async () => {
       setLoading(true);
+      setError(false); // reset error state
+
       try {
-        // Primary API call
-        const { data } = await api.get<CurrencyApiResponse>(
-          API_URL + `${currency}.json`
-        );
-        const rate = data[currency]?.cop ?? null;
-
-        if (rate !== null) {
-          setCurrencyToCop(rate);
+        const rate = await fetchExchangeRate(currency);
+        if (rate === null) {
+          setError(true);
+          setCurrencyToCop(null);
         } else {
-          throw new Error("No COP rate found in primary API.");
+          setCurrencyToCop(rate);
         }
-      } catch (primaryError) {
-        console.warn("Primary API failed, trying fallback...", primaryError);
-
-        try {
-          // Fallback API call
-          const fallbackResponse = await fetch(
-            `${FALLBACK_API_URL}${currency}.json`
-          );
-          const fallbackData: CurrencyApiResponse =
-            await fallbackResponse.json();
-          const fallbackRate = fallbackData[currency]?.cop ?? null;
-
-          if (fallbackRate !== null) {
-            setCurrencyToCop(fallbackRate);
-          } else {
-            throw new Error("No COP rate found in fallback API.");
-          }
-        } catch (fallbackError) {
-          console.error("Fallback API also failed", fallbackError);
-          setCurrencyToCop(0); // Show error message
-        }
+      } catch (err) {
+        console.error("Error fetching exchange rate:", err);
+        setError(true);
+        setCurrencyToCop(null);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchExchangeRates();
+    getExchangeRate();
   }, [currency]);
 
   return (
     <div className="bg-blue-dark/80 text-white p-6 rounded-lg shadow-md text-center max-w-md font-open-sans">
-      {currencyToCop === 0 ? (
+      {error ? (
         <p className="text-lg font-bold">No se pudo traer la información</p>
       ) : (
         <>
