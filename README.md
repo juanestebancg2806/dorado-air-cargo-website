@@ -8,7 +8,7 @@ Built with [Astro](https://astro.build/) + [React](https://react.dev/) + [Tailwi
 
 ## 🔗 Live Site
 
-[https://www.eldoradoaircargo.com](https://www.eldoradoaircargo.com) (Not deployed yet)
+[https://www.eldoradoaircargo.com](https://www.eldoradoaircargo.com) 
 
 ---
 
